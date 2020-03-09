@@ -1,6 +1,7 @@
 #pragma once
 
 #include "ofMain.h"
+#include "ofxSvg.h"
 
 
 class country {
@@ -45,5 +46,8 @@ class ofApp : public ofBaseApp{
 
 	ofEasyCam camera;
 	ofVec3f middle;
+
+	ofxSVG worldMapSVG;
+
 
 };

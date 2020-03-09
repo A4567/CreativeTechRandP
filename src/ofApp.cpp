@@ -13,7 +13,8 @@ void ofApp::setup(){
     noise.setVolume(0.5f);
     // load british flag and world map outline
     britFlag.load("flag.png");
-    mapOutline.load("WorldMapOutline.png");
+    //mapOutline.load("WorldMapOutline.png");
+	worldMapSVG.load("WorldMapSVG.svg");
     // collect country names from directory
     string path = "countries";
     ofDirectory dir(path);
@@ -30,13 +31,14 @@ void ofApp::setup(){
         countries.push_back(newCountry);
     }
 
-	camera.setDistance(1500);
-	camera.setDrag(0.4);
-	middle.x = mapOutline.getWidth() / 2;
-	middle.y = mapOutline.getHeight() / 2;
+	camera.setDistance(2000);
+	camera.setDrag(200);
+	middle.x = worldMapSVG.getWidth() / 2;
+	middle.y = worldMapSVG.getHeight() / 2;
 	middle.z = 1000;
 
 	camera.setPosition(middle);
+	
 }
 
 //--------------------------------------------------------------
@@ -52,10 +54,10 @@ void ofApp::update(){
     }
 
 	if (camera.getX() < ofGetWidth() / 2) camera.setPosition(ofGetWidth() / 2, camera.getY(), camera.getZ());
-	if (camera.getX() > mapOutline.getWidth() - ofGetWidth()/2) camera.setPosition(mapOutline.getWidth() - (ofGetWidth()/2), camera.getY(), camera.getZ());
+	if (camera.getX() > worldMapSVG.getWidth() - ofGetWidth()/2) camera.setPosition(worldMapSVG.getWidth() - (ofGetWidth()/2), camera.getY(), camera.getZ());
 
 	if (camera.getY() < ofGetHeight() / 1.75) camera.setPosition(camera.getX(), ofGetHeight() / 1.75, camera.getZ());
-	if (camera.getY() > mapOutline.getHeight() - ofGetHeight()/1.75) camera.setPosition(camera.getX(), mapOutline.getHeight() - ofGetHeight() / 1.75, camera.getZ());
+	if (camera.getY() > worldMapSVG.getHeight() - ofGetHeight()/1.75) camera.setPosition(camera.getX(), worldMapSVG.getHeight() - ofGetHeight() / 1.75, camera.getZ());
 
 
 
@@ -70,11 +72,20 @@ void ofApp::draw(){
     //sets the colour of the countries on the map to white
     ofSetColor(255);
     //draw the map of the world
-    mapOutline.draw(0,0, mapOutline.getWidth(), mapOutline.getHeight());
+    //mapOutline.draw(0,0, mapOutline.getWidth(), mapOutline.getHeight());
+	ofPushMatrix();
+	ofScale(1, -1, -1);
+	ofTranslate(0, -worldMapSVG.getHeight(), 0);
+	worldMapSVG.draw();
+	ofPopMatrix();
+
     //push the matrix to set the 0,0 point to the centre
     ofPushMatrix();
-    ofTranslate(ofGetWidth()/2, ofGetHeight()/2);
-    //draw the britsh flag over the uk
+
+	ofTranslate(ofGetWidth() / 2, ofGetHeight() / 2);
+	
+
+	//draw the britsh flag over the uk
     britFlag.draw(centre.x-britFlag.getWidth()/20,centre.y-britFlag.getHeight()/20,britFlag.getWidth()/10,britFlag.getHeight()/10);
     //for every country trigger the draw function, it takes the i value each time as an index to allow for more variation later - might not be needed, but it does need the ofVec3f centre as a point for the spawners to move too
     for(int i = 0; i < countries.size(); i++){
