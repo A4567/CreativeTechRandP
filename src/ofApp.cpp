@@ -20,7 +20,7 @@ void ofApp::setup(){
     dir.listDir();
     for(int i = 0; i < dir.size(); i++){
         countryName = dir.getPath(i);
-        countryName.erase(0, countryName.find("/")+1);
+        countryName.erase(0, countryName.find("\\")+1);
         countryNames.push_back(countryName);
     }
     //create new country for each country name
@@ -29,10 +29,19 @@ void ofApp::setup(){
         country newCountry(countryNames[i]);
         countries.push_back(newCountry);
     }
+
+	camera.setDistance(1500);
+	camera.setDrag(0.4);
+	middle.x = mapOutline.getWidth() / 2;
+	middle.y = mapOutline.getHeight() / 2;
+	middle.z = 1000;
+
+	camera.setPosition(middle);
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
+
     // get current time if time is a factor of 5 clear the spawn vector and set the spawn boolean to true if non of the tracks in it are playing
     randspawn = ofGetElapsedTimef();
     for(int i = 0; i < countries.size(); i ++){
@@ -41,10 +50,23 @@ void ofApp::update(){
             countries[i].b_spawn = true;
         }
     }
+
+	if (camera.getX() < ofGetWidth() / 2) camera.setPosition(ofGetWidth() / 2, camera.getY(), camera.getZ());
+	if (camera.getX() > mapOutline.getWidth() - ofGetWidth()/2) camera.setPosition(mapOutline.getWidth() - (ofGetWidth()/2), camera.getY(), camera.getZ());
+
+	if (camera.getY() < ofGetHeight() / 1.75) camera.setPosition(camera.getX(), ofGetHeight() / 1.75, camera.getZ());
+	if (camera.getY() > mapOutline.getHeight() - ofGetHeight()/1.75) camera.setPosition(camera.getX(), mapOutline.getHeight() - ofGetHeight() / 1.75, camera.getZ());
+
+
+
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
+
+	camera.begin();
+
+
     //sets the colour of the countries on the map to white
     ofSetColor(255);
     //draw the map of the world
@@ -101,13 +123,42 @@ void ofApp::draw(){
             }
         }
     }
-    ofPopMatrix();
+    ofPopMatrix();	
+
+	camera.end();
+
     
 }
 
 //--------------------------------------------------------------
-void ofApp::keyPressed(int key){
-    
+void ofApp::keyPressed(int key)
+{
+	if (key == 'w')
+	{
+		ofVec3f currentPos = camera.getPosition();
+		currentPos.y += 30;
+		camera.setPosition(currentPos);
+	}
+
+	if (key == 's')
+	{
+		ofVec3f currentPos = camera.getPosition();
+		currentPos.y -= 30;
+		camera.setPosition(currentPos);
+	}
+	if (key == 'a')
+	{
+		ofVec3f currentPos = camera.getPosition();
+		currentPos.x -= 30;
+		camera.setPosition(currentPos);
+	}
+
+	if (key == 'd')
+	{
+		ofVec3f currentPos = camera.getPosition();
+		currentPos.x += 30;
+		camera.setPosition(currentPos);
+	}
 }
 
 //--------------------------------------------------------------

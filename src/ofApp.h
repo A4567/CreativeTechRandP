@@ -42,4 +42,8 @@ class ofApp : public ofBaseApp{
     ofImage britFlag;
     int randspawn;
     ofImage mapOutline;
+
+	ofEasyCam camera;
+	ofVec3f middle;
+
 };
