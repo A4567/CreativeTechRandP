@@ -3,8 +3,8 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
     // set the centre point for the uk and a size for it to be
-    centre.x = -100;
-    centre.y = -275;
+    centre.x = 1100;
+    centre.y = 1750;
     countrySize = 20;
 //    assign backing track that will always be playing on loop with a volume of 50%
     noise.load("p1.mp3");
@@ -21,7 +21,8 @@ void ofApp::setup(){
     dir.listDir();
     for(int i = 0; i < dir.size(); i++){
         countryName = dir.getPath(i);
-        countryName.erase(0, countryName.find("\\")+1);
+        countryName.erase(0, countryName.find("/")+1);
+        //countryName.erase(0, countryName.find("\\")+1);
         countryNames.push_back(countryName);
     }
     //create new country for each country name
