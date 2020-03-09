@@ -2,18 +2,19 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-    
-    centre.x = 0;
-    centre.y = 0;
-    countrySize = 125;
+    // set the centre point for the uk and a size for it to be
+    centre.x = -100;
+    centre.y = -275;
+    countrySize = 20;
+//    assign backing track that will always be playing on loop with a volume of 50%
     noise.load("p1.mp3");
     noise.setLoop(true);
-   // noise.setMultiPlay(true);
-  //  noise.play();
+    noise.play();
     noise.setVolume(0.5f);
-    
+    // load british flag and world map outline
     britFlag.load("flag.png");
-    
+    mapOutline.load("WorldMapOutline.png");
+    // collect country names from directory
     string path = "countries";
     ofDirectory dir(path);
     dir.listDir();
@@ -22,6 +23,7 @@ void ofApp::setup(){
         countryName.erase(0, countryName.find("/")+1);
         countryNames.push_back(countryName);
     }
+    //create new country for each country name
     int numCountries = dir.size();
     for(int i = 0; i < numCountries; i++){
         country newCountry(countryNames[i]);
@@ -31,55 +33,72 @@ void ofApp::setup(){
 
 //--------------------------------------------------------------
 void ofApp::update(){
-    if(noise.getPosition() > 0.7){
-        noise.setPosition(0);
+    // get current time if time is a factor of 5 clear the spawn vector and set the spawn boolean to true if non of the tracks in it are playing
+    randspawn = ofGetElapsedTimef();
+    for(int i = 0; i < countries.size(); i ++){
+        if((randspawn % 5 == 0)&&(countries[i].spawn.size() < 1)&&((!countries[i].v_drum[0].isPlaying())&&(!countries[i].v_bass[0].isPlaying())&&(!countries[i].v_lead[0].isPlaying()))){
+            countries[i].spawn.clear();
+            countries[i].b_spawn = true;
+        }
     }
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
+    //sets the colour of the countries on the map to white
+    ofSetColor(255);
+    //draw the map of the world
+    mapOutline.draw(0,0, mapOutline.getWidth(), mapOutline.getHeight());
+    //push the matrix to set the 0,0 point to the centre
     ofPushMatrix();
     ofTranslate(ofGetWidth()/2, ofGetHeight()/2);
-
-    ofDrawCircle(centre, countrySize);
-    britFlag.draw(centre.x-britFlag.getWidth()/4,centre.y-britFlag.getHeight()/4,britFlag.getWidth()/2,britFlag.getHeight()/2);
+    //draw the britsh flag over the uk
+    britFlag.draw(centre.x-britFlag.getWidth()/20,centre.y-britFlag.getHeight()/20,britFlag.getWidth()/10,britFlag.getHeight()/10);
+    //for every country trigger the draw function, it takes the i value each time as an index to allow for more variation later - might not be needed, but it does need the ofVec3f centre as a point for the spawners to move too
     for(int i = 0; i < countries.size(); i++){
-        countries[i].draw(i);
-        dist = ofDist(centre.x, centre.y, countries[i].point.x, countries[i].point.y);
-        if(dist - countrySize < countries[i].radius){
+        countries[i].draw(i,centre);
+        //if the country has more than 0 spawns check the distance between it and the centre point
+        if(countries[i].spawn.size() > 0){
             
-            int rand;
-            if((!countries[i].v_bass[0].isPlaying())&&(!countries[i].v_drum[0].isPlaying())&&(!countries[i].v_lead[0].isPlaying())){
-                rand = ofRandom(3);
-                cout << rand << endl;
+            dist = ofDist(centre.x, centre.y, countries[i].spawn[0].x, countries[i].spawn[0].y);
+            //if the distance minus the size of the uk is less than 3 pick a number between from 0 to 2 inclusive to decide which type of track will play - if there is a track playing from that country already set the value to 4 preventing it from triggering a sample
+            
+            if(dist - countrySize < 3){
+                
+                int rand;
+                if((!countries[i].v_bass[0].isPlaying())&&(!countries[i].v_drum[0].isPlaying())&&(!countries[i].v_lead[0].isPlaying())){
+                    rand = ofRandom(3);
+                }else{
+                    rand = 4;
+                }
+                //if the sample isnt playing play it and set the position to that of the backing track
+                switch (rand) {
+                    case 0:
+                        if(!countries[i].v_bass[0].isPlaying()){
+                            countries[i].v_bass[0].play();
+                            countries[i].v_bass[0].setPosition(noise.getPosition());
+                        }
+                        break;
+                    case 1:
+                        if(!countries[i].v_drum[0].isPlaying()){
+                            countries[i].v_drum[0].play();
+                            countries[i].v_drum[0].setPosition(noise.getPosition());
+                        }
+                        break;
+                    case 2:
+                        if(!countries[i].v_lead[0].isPlaying()){
+                            countries[i].v_lead[0].play();
+                            countries[i].v_lead[0].setPosition(noise.getPosition());
+                        }
+                        break;
+                        
+                }
             }else{
-                rand = 4;
+                //if the distance is greater than 3 stop all the tracks -- needs work to make sure it doesnt trigger abrupt silence
+                countries[i].v_bass[0].stop();
+                countries[i].v_drum[0].stop();
+                countries[i].v_lead[0].stop();
             }
-            
-            switch (rand) {
-                case 0:
-                    if(!countries[i].v_bass[0].isPlaying()){
-                        countries[i].v_bass[0].play();
-                        cout << "bass" << countries[i].name << endl;
-                    }
-                    break;
-                case 1:
-                    if(!countries[i].v_drum[0].isPlaying()){
-                        countries[i].v_drum[0].play();
-                        cout << "drum" << countries[i].name << endl;
-                    }
-                    break;
-                case 2:
-                    if(!countries[i].v_lead[0].isPlaying()){
-                        countries[i].v_lead[0].play();
-                        cout << "lead" << countries[i].name << endl;
-                    }
-                    break;
-            }
-        }else{
-            countries[i].v_bass[0].stop();
-            countries[i].v_drum[0].stop();
-            countries[i].v_lead[0].stop();
         }
     }
     ofPopMatrix();
@@ -92,53 +111,86 @@ void ofApp::keyPressed(int key){
 }
 
 //--------------------------------------------------------------
-//--------------------------------------------------------------
+//-------------Class Constructor for the countries--------------
 country::country(string nameOfCountry){
+    //get the country name form the setup when the class is constructed
     name = nameOfCountry;
+    //set a radius and colour -- not used any more i think
     radius = 25;
     r = ofRandom(30,220);
     g = ofRandom(30,220);
     b = ofRandom(30,220);
-    
+    //set the spawning of the walkers to false preventing it from creating them straight awaay
+    b_spawn = false;
+    //load the music not image
+    note.load("musicnotes/eighth-note.png");
+    //set the paths for each type of track
     string path_b = "countries/" + name + "/bass/bass";
     string path_d = "countries/" + name + "/drums/drums";
     string path_l = "countries/" + name + "/lead/lead";
+    //assign an image to each class
     flag.load("countries/"+name+"/flag.png");
     
-
+    //assign each of the tracks of each type to a vector
     for(int i = 0; i < 1; i++){
         ofSoundPlayer bass,lead,drums;
         bass.load(path_b + ofToString(i) +".mp3");
-        //bass.setMultiPlay(true);
-        bass.setLoop(true);
-        lead.load(path_b + ofToString(i) +".mp3");
-        //lead.setMultiPlay(true);
-        lead.setLoop(true);
+        //bass.setLoop(true);
+        lead.load(path_l + ofToString(i) +".mp3");
+        // lead.setLoop(true);
         drums.load(path_d + ofToString(i) +".mp3");
-        //drums.setMultiPlay(true);
-        drums.setLoop(true);
+        // drums.setLoop(true);
         v_bass.push_back(bass);
         v_drum.push_back(drums);
         v_lead.push_back(lead);
     }
+   //read text files to obtain start points for each country
+    ofFile test;
+    test.open("countries/"+name+"/startpoint.txt");
+    ofBuffer buff(test);
+    string coords = ofToString(buff);
+    
+    string xCoord = coords;
+    xCoord.erase(xCoord.find(":"),xCoord.size());
+    string yCoord = coords;
+    yCoord.erase(0,yCoord.find(":")+1);
+    
+    point.x = ofToFloat(xCoord);
+    point.y = ofToFloat(yCoord);
 }
 
 country::~country(){
     
 }
 
-void country::draw(float index){
+void country::draw(float index, ofVec3f target){
+    //get the elasped time and set the speed of the walkers
     time = ofGetElapsedTimef();
     float speed = 0.01;
-    float posX = (index*1.1) + 39.54;
-    float posY = (index*1.1) + 42.69;
+    //if spawn is true push the origin of the country to the spawn vector and set it back to false
+    if(b_spawn){
+        spawn.push_back(point);
+        b_spawn = false;
+    }
     
-    point.x = (ofGetWidth()*2.0) * ofNoise(time * (speed*(index+1)) + posX) - ofGetWidth();
-    point.y = (ofGetHeight()*2.0) * ofNoise(time * (speed*(index+1)) + posY) - ofGetHeight();
-    ofSetColor(r, g, b, 110);
-    ofDrawCircle(point, radius);
+    //draw the flags over the origin points
     ofSetColor(255);
     flag.draw(point.x-flag.getWidth()/20,point.y-flag.getHeight()/20,flag.getWidth()/10,flag.getHeight()/10);
-    // make it more controlled and less flowy looking, give the countries a sense of intention
-    ofDrawBitmapString(name, point.x+25,point.y);
+    
+    //if the spawn vector is greater than 0 create a middle point -- this is wrong now, should be target - this will let us use ofLerp to setp towards the target and if the country is within a certain distance it will be removed from the vector preventing too many countries spawning spawns.
+    if(spawn.size() > 0){
+        float spawnDist = ofDist(spawn[0].x, spawn[0].y, target.x, target.y);
+        
+        float xAmt,yAmt;
+        xAmt = 0.005;
+        yAmt = 0.005;
+        
+        spawn[0].x = ofLerp(spawn[0].x, target.x, xAmt);
+        spawn[0].y = ofLerp(spawn[0].y, target.y, yAmt);
+        ofSetColor(100,255,176);
+        note.draw(spawn[0], note.getWidth()/30, note.getHeight()/30);
+        if(spawnDist <= 20){
+            spawn.pop_back();
+        }
+    }
 }
