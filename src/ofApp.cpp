@@ -31,7 +31,7 @@ void ofApp::setup(){
         country newCountry(countryNames[i]);
         countries.push_back(newCountry);
     }
-
+	cuntindex = 0;
 	camera.setDistance(2000);
 	camera.setDrag(200);
 	middle.x = worldMapSVG.getWidth() / 2;
@@ -46,8 +46,15 @@ void ofApp::setup(){
 void ofApp::update(){
 
     // get current time if time is a factor of 5 clear the spawn vector and set the spawn boolean to true if non of the tracks in it are playing
-    randspawn = ofGetElapsedTimef();
-    for(int i = 0; i < countries.size(); i ++){
+    
+	/*
+		TO-DO: DELAY THE SENDING OF NOTES TO NOT OVERPOPULATE QUEUE
+		ADD TIMER SYSTEM HERE
+	*/
+
+	randspawn = ofGetElapsedTimef();
+    for(int i = 0; i < countries.size(); i ++)
+	{
         if((randspawn % 5 == 0)&&(countries[i].spawn.size() < 1)&&((!countries[i].v_drum[0].isPlaying())&&(!countries[i].v_bass[0].isPlaying())&&(!countries[i].v_lead[0].isPlaying()))){
             countries[i].spawn.clear();
             countries[i].b_spawn = true;
@@ -60,7 +67,7 @@ void ofApp::update(){
 	if (camera.getY() < ofGetHeight() / 1.75) camera.setPosition(camera.getX(), ofGetHeight() / 1.75, camera.getZ());
 	if (camera.getY() > worldMapSVG.getHeight() - ofGetHeight()/1.75) camera.setPosition(camera.getX(), worldMapSVG.getHeight() - ofGetHeight() / 1.75, camera.getZ());
 
-
+	//moveCamera();
 
 }
 
@@ -97,7 +104,15 @@ void ofApp::draw(){
             dist = ofDist(centre.x, centre.y, countries[i].spawn[0].x, countries[i].spawn[0].y);
             //if the distance minus the size of the uk is less than 3 pick a number between from 0 to 2 inclusive to decide which type of track will play - if there is a track playing from that country already set the value to 4 preventing it from triggering a sample
             
-            if(dist - countrySize < 10){
+			//------------------------------------------------PLAYBACK OF AUDIO BEGIN---------------------------------------------------------
+            /*		
+				TO-DO: MAKE QUEUE SYSTEM FOR PLAYBACK
+				CHECK IF LEAD BASS OR DRUMS IS NOT PLAYING
+				IF CURRENTLY PLAYING: ADD TO QUEUE
+				IF NOT CURRENTLY PLAYING: PLAY
+
+			*/
+			if(dist - countrySize < 10){
                 
                 int rand;
                 if((!countries[i].v_bass[0].isPlaying())&&(!countries[i].v_drum[0].isPlaying())&&(!countries[i].v_lead[0].isPlaying())){
@@ -133,6 +148,9 @@ void ofApp::draw(){
                 countries[i].v_drum[0].stop();
                 countries[i].v_lead[0].stop();
             }
+
+			//------------------------------------------------PLAYBACK OF AUDIO END---------------------------------------------------------
+
         }
     }
     ofPopMatrix();	
@@ -242,16 +260,35 @@ country::country(string nameOfCountry){
     point.y = ofToFloat(yCoord);
 }
 
+void ofApp::moveCamera()
+{
+	int timer = ofGetElapsedTimef();
+	
+	if (timer % 15 == 0)
+	{
+		if (cuntindex >= countries.size()) {
+			cuntindex = 0;
+		}
+		camera.setPosition(countries[cuntindex].point);
+		camera.setDistance(2000);
+		cuntindex++;
+		
+	}
+}
+
 country::~country(){
     
 }
 
-void country::draw(float index, ofVec3f target){
+void country::draw(float index, ofVec3f target)
+{
     //get the elasped time and set the speed of the walkers
     time = ofGetElapsedTimef();
     float speed = 0.01;
+
     //if spawn is true push the origin of the country to the spawn vector and set it back to false
-    if(b_spawn){
+    if(b_spawn)
+	{
         spawn.push_back(point);
         b_spawn = false;
     }
@@ -265,11 +302,13 @@ void country::draw(float index, ofVec3f target){
         float spawnDist = ofDist(spawn[0].x, spawn[0].y, target.x, target.y);
         
         float xAmt,yAmt;
-        xAmt = 0.005;
+		xAmt = 0.005;
         yAmt = 0.005;
         
         spawn[0].x = ofLerp(spawn[0].x, target.x, xAmt);
         spawn[0].y = ofLerp(spawn[0].y, target.y, yAmt);
+
+		
 
 		ofSetColor(0, 0, 0);
 		ofSetLineWidth(5);
@@ -278,7 +317,8 @@ void country::draw(float index, ofVec3f target){
 
         ofSetColor(100,255,176);
         note.draw(spawn[0], note.getWidth()/30, note.getHeight()/30);
-        if(spawnDist <= 20){
+        if(spawnDist <= 20)
+		{
             spawn.pop_back();
         }
     }

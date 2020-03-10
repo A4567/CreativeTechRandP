@@ -20,6 +20,8 @@ public:
     ofImage flag,note;
     bool b_spawn;
     vector<ofVec3f> spawn;
+
+	//MAYBE ADD A DELAY TIMER FROM HERE
 };
 
 class ofApp : public ofBaseApp{
@@ -30,6 +32,7 @@ class ofApp : public ofBaseApp{
         void draw();
 
         void keyPressed(int key);
+		void moveCamera();
 		
         
     vector<country> countries;
@@ -44,9 +47,11 @@ class ofApp : public ofBaseApp{
     ofImage britFlag;
     int randspawn;
     ofImage mapOutline;
-
+	int cuntindex;
 	ofEasyCam camera;
 	ofVec3f middle;
+
+	
 
 	ofxSVG worldMapSVG;
 
