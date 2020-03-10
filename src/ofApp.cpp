@@ -3,8 +3,8 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
     // set the centre point for the uk and a size for it to be
-    centre.x = 1100;
-    centre.y = 1750;
+    centre.x = 1050;
+    centre.y = 1350;
     countrySize = 20;
 //    assign backing track that will always be playing on loop with a volume of 50%
     noise.load("p1.mp3");
