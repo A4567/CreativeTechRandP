@@ -3,8 +3,8 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
     // set the centre point for the uk and a size for it to be
-    centre.x = 1050;
-    centre.y = 1350;
+    centre.x = 825;
+    centre.y = 1300;
     countrySize = 20;
 //    assign backing track that will always be playing on loop with a volume of 50%
     noise.load("p1.mp3");
@@ -21,8 +21,8 @@ void ofApp::setup(){
     dir.listDir();
     for(int i = 0; i < dir.size(); i++){
         countryName = dir.getPath(i);
-        countryName.erase(0, countryName.find("/")+1);
-        //countryName.erase(0, countryName.find("\\")+1);
+        //countryName.erase(0, countryName.find("/")+1);
+        countryName.erase(0, countryName.find("\\")+1);
         countryNames.push_back(countryName);
     }
     //create new country for each country name
@@ -97,7 +97,7 @@ void ofApp::draw(){
             dist = ofDist(centre.x, centre.y, countries[i].spawn[0].x, countries[i].spawn[0].y);
             //if the distance minus the size of the uk is less than 3 pick a number between from 0 to 2 inclusive to decide which type of track will play - if there is a track playing from that country already set the value to 4 preventing it from triggering a sample
             
-            if(dist - countrySize < 3){
+            if(dist - countrySize < 10){
                 
                 int rand;
                 if((!countries[i].v_bass[0].isPlaying())&&(!countries[i].v_drum[0].isPlaying())&&(!countries[i].v_lead[0].isPlaying())){
@@ -197,11 +197,31 @@ country::country(string nameOfCountry){
     //assign each of the tracks of each type to a vector
     for(int i = 0; i < 1; i++){
         ofSoundPlayer bass,lead,drums;
-        bass.load(path_b + ofToString(i) +".mp3");
+		bass.load(path_b + ofToString(i) + ".ogg");
+		if (!bass.isLoaded())
+		{
+			bass.load(path_b + ofToString(i) +".mp3");
+
+		}
+
         //bass.setLoop(true);
-        lead.load(path_l + ofToString(i) +".mp3");
+		lead.load(path_l + ofToString(i) + ".ogg");
+
+		if (!lead.isLoaded())
+		{
+			lead.load(path_l + ofToString(i) +".mp3");
+
+		}
+
         // lead.setLoop(true);
-        drums.load(path_d + ofToString(i) +".mp3");
+
+		drums.load(path_d + ofToString(i) + ".ogg");
+		if (!drums.isLoaded())
+		{
+			drums.load(path_d + ofToString(i) +".mp3");
+
+		}
+
         // drums.setLoop(true);
         v_bass.push_back(bass);
         v_drum.push_back(drums);
@@ -250,6 +270,12 @@ void country::draw(float index, ofVec3f target){
         
         spawn[0].x = ofLerp(spawn[0].x, target.x, xAmt);
         spawn[0].y = ofLerp(spawn[0].y, target.y, yAmt);
+
+		ofSetColor(0, 0, 0);
+		ofSetLineWidth(5);
+		ofDrawLine(point, spawn[0]);
+
+
         ofSetColor(100,255,176);
         note.draw(spawn[0], note.getWidth()/30, note.getHeight()/30);
         if(spawnDist <= 20){

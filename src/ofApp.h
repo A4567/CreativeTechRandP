@@ -30,6 +30,7 @@ class ofApp : public ofBaseApp{
         void draw();
 
         void keyPressed(int key);
+		
         
     vector<country> countries;
     ofVec3f centre;
