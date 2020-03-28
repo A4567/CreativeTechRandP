@@ -386,3 +386,7 @@ CreativeTechRandP.vcxproj.filters
 CreativeTechRandP.vcxproj
 CreativeTechRandP.sln
 addons.make
+*.rc
+*.filters
+*.vcxproj
+*.sln
