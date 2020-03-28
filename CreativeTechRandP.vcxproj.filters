@@ -13,7 +13,7 @@
 		<ClCompile Include="src\ofApp.cpp">
 			<Filter>src</Filter>
 		</ClCompile>
-		<ClCompile Include="..\..\oF\addons\ofxSvg\src\ofxSvg.cpp">
+		<ClCompile Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\src\ofxSvg.cpp">
 			<Filter>addons\ofxSvg\src</Filter>
 		</ClCompile>
 	</ItemGroup>
@@ -56,151 +56,151 @@
 		<ClInclude Include="src\ofApp.h">
 			<Filter>src</Filter>
 		</ClInclude>
-		<ClInclude Include="..\..\oF\addons\ofxSvg\src\ofxSvg.h">
+		<ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\src\ofxSvg.h">
 			<Filter>addons\ofxSvg\src</Filter>
 		</ClInclude>
-		<ClInclude Include="..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml\c14n.h">
+		<ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\c14n.h">
 			<Filter>addons\ofxSvg\libs\libxml2\include\libxml</Filter>
 		</ClInclude>
-		<ClInclude Include="..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml\catalog.h">
+		<ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\catalog.h">
 			<Filter>addons\ofxSvg\libs\libxml2\include\libxml</Filter>
 		</ClInclude>
-		<ClInclude Include="..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml\chvalid.h">
+		<ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\chvalid.h">
 			<Filter>addons\ofxSvg\libs\libxml2\include\libxml</Filter>
 		</ClInclude>
-		<ClInclude Include="..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml\debugXML.h">
+		<ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\debugXML.h">
 			<Filter>addons\ofxSvg\libs\libxml2\include\libxml</Filter>
 		</ClInclude>
-		<ClInclude Include="..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml\dict.h">
+		<ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\dict.h">
 			<Filter>addons\ofxSvg\libs\libxml2\include\libxml</Filter>
 		</ClInclude>
-		<ClInclude Include="..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml\DOCBparser.h">
+		<ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\DOCBparser.h">
 			<Filter>addons\ofxSvg\libs\libxml2\include\libxml</Filter>
 		</ClInclude>
-		<ClInclude Include="..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml\encoding.h">
+		<ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\encoding.h">
 			<Filter>addons\ofxSvg\libs\libxml2\include\libxml</Filter>
 		</ClInclude>
-		<ClInclude Include="..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml\entities.h">
+		<ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\entities.h">
 			<Filter>addons\ofxSvg\libs\libxml2\include\libxml</Filter>
 		</ClInclude>
-		<ClInclude Include="..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml\globals.h">
+		<ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\globals.h">
 			<Filter>addons\ofxSvg\libs\libxml2\include\libxml</Filter>
 		</ClInclude>
-		<ClInclude Include="..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml\hash.h">
+		<ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\hash.h">
 			<Filter>addons\ofxSvg\libs\libxml2\include\libxml</Filter>
 		</ClInclude>
-		<ClInclude Include="..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml\HTMLparser.h">
+		<ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\HTMLparser.h">
 			<Filter>addons\ofxSvg\libs\libxml2\include\libxml</Filter>
 		</ClInclude>
-		<ClInclude Include="..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml\HTMLtree.h">
+		<ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\HTMLtree.h">
 			<Filter>addons\ofxSvg\libs\libxml2\include\libxml</Filter>
 		</ClInclude>
-		<ClInclude Include="..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml\list.h">
+		<ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\list.h">
 			<Filter>addons\ofxSvg\libs\libxml2\include\libxml</Filter>
 		</ClInclude>
-		<ClInclude Include="..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml\nanoftp.h">
+		<ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\nanoftp.h">
 			<Filter>addons\ofxSvg\libs\libxml2\include\libxml</Filter>
 		</ClInclude>
-		<ClInclude Include="..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml\nanohttp.h">
+		<ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\nanohttp.h">
 			<Filter>addons\ofxSvg\libs\libxml2\include\libxml</Filter>
 		</ClInclude>
-		<ClInclude Include="..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml\parser.h">
+		<ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\parser.h">
 			<Filter>addons\ofxSvg\libs\libxml2\include\libxml</Filter>
 		</ClInclude>
-		<ClInclude Include="..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml\parserInternals.h">
+		<ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\parserInternals.h">
 			<Filter>addons\ofxSvg\libs\libxml2\include\libxml</Filter>
 		</ClInclude>
-		<ClInclude Include="..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml\pattern.h">
+		<ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\pattern.h">
 			<Filter>addons\ofxSvg\libs\libxml2\include\libxml</Filter>
 		</ClInclude>
-		<ClInclude Include="..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml\relaxng.h">
+		<ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\relaxng.h">
 			<Filter>addons\ofxSvg\libs\libxml2\include\libxml</Filter>
 		</ClInclude>
-		<ClInclude Include="..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml\SAX.h">
+		<ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\SAX.h">
 			<Filter>addons\ofxSvg\libs\libxml2\include\libxml</Filter>
 		</ClInclude>
-		<ClInclude Include="..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml\SAX2.h">
+		<ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\SAX2.h">
 			<Filter>addons\ofxSvg\libs\libxml2\include\libxml</Filter>
 		</ClInclude>
-		<ClInclude Include="..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml\schemasInternals.h">
+		<ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\schemasInternals.h">
 			<Filter>addons\ofxSvg\libs\libxml2\include\libxml</Filter>
 		</ClInclude>
-		<ClInclude Include="..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml\schematron.h">
+		<ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\schematron.h">
 			<Filter>addons\ofxSvg\libs\libxml2\include\libxml</Filter>
 		</ClInclude>
-		<ClInclude Include="..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml\threads.h">
+		<ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\threads.h">
 			<Filter>addons\ofxSvg\libs\libxml2\include\libxml</Filter>
 		</ClInclude>
-		<ClInclude Include="..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml\tree.h">
+		<ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\tree.h">
 			<Filter>addons\ofxSvg\libs\libxml2\include\libxml</Filter>
 		</ClInclude>
-		<ClInclude Include="..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml\uri.h">
+		<ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\uri.h">
 			<Filter>addons\ofxSvg\libs\libxml2\include\libxml</Filter>
 		</ClInclude>
-		<ClInclude Include="..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml\valid.h">
+		<ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\valid.h">
 			<Filter>addons\ofxSvg\libs\libxml2\include\libxml</Filter>
 		</ClInclude>
-		<ClInclude Include="..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml\xinclude.h">
+		<ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\xinclude.h">
 			<Filter>addons\ofxSvg\libs\libxml2\include\libxml</Filter>
 		</ClInclude>
-		<ClInclude Include="..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml\xlink.h">
+		<ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\xlink.h">
 			<Filter>addons\ofxSvg\libs\libxml2\include\libxml</Filter>
 		</ClInclude>
-		<ClInclude Include="..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml\xmlautomata.h">
+		<ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\xmlautomata.h">
 			<Filter>addons\ofxSvg\libs\libxml2\include\libxml</Filter>
 		</ClInclude>
-		<ClInclude Include="..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml\xmlerror.h">
+		<ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\xmlerror.h">
 			<Filter>addons\ofxSvg\libs\libxml2\include\libxml</Filter>
 		</ClInclude>
-		<ClInclude Include="..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml\xmlexports.h">
+		<ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\xmlexports.h">
 			<Filter>addons\ofxSvg\libs\libxml2\include\libxml</Filter>
 		</ClInclude>
-		<ClInclude Include="..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml\xmlIO.h">
+		<ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\xmlIO.h">
 			<Filter>addons\ofxSvg\libs\libxml2\include\libxml</Filter>
 		</ClInclude>
-		<ClInclude Include="..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml\xmlmemory.h">
+		<ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\xmlmemory.h">
 			<Filter>addons\ofxSvg\libs\libxml2\include\libxml</Filter>
 		</ClInclude>
-		<ClInclude Include="..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml\xmlmodule.h">
+		<ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\xmlmodule.h">
 			<Filter>addons\ofxSvg\libs\libxml2\include\libxml</Filter>
 		</ClInclude>
-		<ClInclude Include="..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml\xmlreader.h">
+		<ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\xmlreader.h">
 			<Filter>addons\ofxSvg\libs\libxml2\include\libxml</Filter>
 		</ClInclude>
-		<ClInclude Include="..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml\xmlregexp.h">
+		<ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\xmlregexp.h">
 			<Filter>addons\ofxSvg\libs\libxml2\include\libxml</Filter>
 		</ClInclude>
-		<ClInclude Include="..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml\xmlsave.h">
+		<ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\xmlsave.h">
 			<Filter>addons\ofxSvg\libs\libxml2\include\libxml</Filter>
 		</ClInclude>
-		<ClInclude Include="..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml\xmlschemas.h">
+		<ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\xmlschemas.h">
 			<Filter>addons\ofxSvg\libs\libxml2\include\libxml</Filter>
 		</ClInclude>
-		<ClInclude Include="..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml\xmlschemastypes.h">
+		<ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\xmlschemastypes.h">
 			<Filter>addons\ofxSvg\libs\libxml2\include\libxml</Filter>
 		</ClInclude>
-		<ClInclude Include="..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml\xmlstring.h">
+		<ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\xmlstring.h">
 			<Filter>addons\ofxSvg\libs\libxml2\include\libxml</Filter>
 		</ClInclude>
-		<ClInclude Include="..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml\xmlunicode.h">
+		<ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\xmlunicode.h">
 			<Filter>addons\ofxSvg\libs\libxml2\include\libxml</Filter>
 		</ClInclude>
-		<ClInclude Include="..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml\xmlversion.h">
+		<ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\xmlversion.h">
 			<Filter>addons\ofxSvg\libs\libxml2\include\libxml</Filter>
 		</ClInclude>
-		<ClInclude Include="..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml\xmlwriter.h">
+		<ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\xmlwriter.h">
 			<Filter>addons\ofxSvg\libs\libxml2\include\libxml</Filter>
 		</ClInclude>
-		<ClInclude Include="..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml\xpath.h">
+		<ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\xpath.h">
 			<Filter>addons\ofxSvg\libs\libxml2\include\libxml</Filter>
 		</ClInclude>
-		<ClInclude Include="..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml\xpathInternals.h">
+		<ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\xpathInternals.h">
 			<Filter>addons\ofxSvg\libs\libxml2\include\libxml</Filter>
 		</ClInclude>
-		<ClInclude Include="..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml\xpointer.h">
+		<ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\xpointer.h">
 			<Filter>addons\ofxSvg\libs\libxml2\include\libxml</Filter>
 		</ClInclude>
-		<ClInclude Include="..\..\oF\addons\ofxSvg\libs\svgtiny\include\svgtiny.h">
+		<ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\svgtiny\include\svgtiny.h">
 			<Filter>addons\ofxSvg\libs\svgtiny\include</Filter>
 		</ClInclude>
 	</ItemGroup>
