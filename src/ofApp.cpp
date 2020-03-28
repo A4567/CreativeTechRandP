@@ -132,7 +132,7 @@ void ofApp::draw(){
                         if(!countries[i].v_drum[0].isPlaying()){
                             countries[i].v_drum[0].play();
                             countries[i].v_drum[0].setPosition(noise.getPosition());
-                        }
+                        }		
                         break;
                     case 2:
                         if(!countries[i].v_lead[0].isPlaying()){

@@ -381,3 +381,8 @@ DerivedData/
 
 ## Gcc Patch
 /*.gcno
+icon.rc
+CreativeTechRandP.vcxproj.filters
+CreativeTechRandP.vcxproj
+CreativeTechRandP.sln
+addons.make
