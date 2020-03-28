@@ -2,29 +2,14 @@
 
 #include "ofMain.h"
 #include "ofxSvg.h"
+#include "country.h"
+#include "dynamicCamera.h"
 
 
-class country {
-    
-public:
-    
-    
-    void draw(float index, ofVec3f target);
-    float time;
-    int radius,r,g,b;
-    ofVec3f point;
-    country(string nameOfCountry);
-    ~country();
-    string name;
-    vector<ofSoundPlayer> v_bass, v_drum, v_lead;
-    ofImage flag,note;
-    bool b_spawn;
-    vector<ofVec3f> spawn;
 
-	//MAYBE ADD A DELAY TIMER FROM HERE
-};
 
-class ofApp : public ofBaseApp{
+class ofApp : public ofBaseApp
+{
 
     public:
         void setup();
@@ -33,6 +18,12 @@ class ofApp : public ofBaseApp{
 
         void keyPressed(int key);
 		void moveCamera();
+
+		void loadCountries();
+		void loadGraphics();
+		void loadCamera();
+		void loadBaseMusic();
+
 		
         
     vector<country> countries;
@@ -41,18 +32,19 @@ class ofApp : public ofBaseApp{
     int countrySize;
     vector<string> countryNames;
     string countryName;
-    ofSoundPlayer noise;
+    ofSoundPlayer baseMusic;
     vector<ofSoundPlayer> soundVectorBass,soundVectorDrum,SoundVectorLead;
     vector<bool> play;
     ofImage britFlag;
     int randspawn;
     ofImage mapOutline;
-	int cuntindex;
+	int countryIndex;
+
+
 	ofEasyCam camera;
-	ofVec3f middle;
+
 
 	
-
 	ofxSVG worldMapSVG;
 
 

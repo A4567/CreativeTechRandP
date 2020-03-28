@@ -1,45 +1,13 @@
 #include "ofApp.h"
 
 //--------------------------------------------------------------
-void ofApp::setup(){
-    // set the centre point for the uk and a size for it to be
-    centre.x = 825;
-    centre.y = 1300;
-    countrySize = 20;
-//    assign backing track that will always be playing on loop with a volume of 50%
-    noise.load("p1.mp3");
-    noise.setLoop(true);
-    noise.play();
-    noise.setVolume(0.5f);
-    // load british flag and world map outline
-    britFlag.load("flag.png");
-    //mapOutline.load("WorldMapOutline.png");
-	worldMapSVG.load("WorldMapSVG.svg");
-    // collect country names from directory
-    string path = "countries";
-    ofDirectory dir(path);
-    dir.listDir();
-    for(int i = 0; i < dir.size(); i++){
-        countryName = dir.getPath(i);
-        //countryName.erase(0, countryName.find("/")+1);
-        countryName.erase(0, countryName.find("\\")+1);
-        countryNames.push_back(countryName);
-    }
-    //create new country for each country name
-    int numCountries = dir.size();
-    for(int i = 0; i < numCountries; i++){
-        country newCountry(countryNames[i]);
-        countries.push_back(newCountry);
-    }
-	cuntindex = 0;
-	camera.setDistance(2000);
-	camera.setDrag(200);
-	middle.x = worldMapSVG.getWidth() / 2;
-	middle.y = worldMapSVG.getHeight() / 2;
-	middle.z = 1000;
+void ofApp::setup()
+{    
+	loadCountries();
+	loadGraphics();
+	loadBaseMusic();
+	loadCamera(); 
 
-	camera.setPosition(middle);
-	
 }
 
 //--------------------------------------------------------------
@@ -67,7 +35,7 @@ void ofApp::update(){
 	if (camera.getY() < ofGetHeight() / 1.75) camera.setPosition(camera.getX(), ofGetHeight() / 1.75, camera.getZ());
 	if (camera.getY() > worldMapSVG.getHeight() - ofGetHeight()/1.75) camera.setPosition(camera.getX(), worldMapSVG.getHeight() - ofGetHeight() / 1.75, camera.getZ());
 
-	//moveCamera();
+	//dynCamera.camera.moveCamera();
 
 }
 
@@ -79,15 +47,22 @@ void ofApp::draw(){
 
     //sets the colour of the countries on the map to white
     ofSetColor(255);
-    //draw the map of the world
-    //mapOutline.draw(0,0, mapOutline.getWidth(), mapOutline.getHeight());
+   
+	//--------------------------------START MATRIX PUSH
 	ofPushMatrix();
+
 	ofScale(1, -1, -1);
 	ofTranslate(0, -worldMapSVG.getHeight(), 0);
 	worldMapSVG.draw();
+
 	ofPopMatrix();
 
-    //push the matrix to set the 0,0 point to the centre
+	//--------------------------------STOP MATRIX PUSH
+
+
+    
+	//--------------------------------START MATRIX PUSH
+	//push the matrix to set the 0,0 point to the centre
     ofPushMatrix();
 
 	ofTranslate(ofGetWidth() / 2, ofGetHeight() / 2);
@@ -125,19 +100,19 @@ void ofApp::draw(){
                     case 0:
                         if(!countries[i].v_bass[0].isPlaying()){
                             countries[i].v_bass[0].play();
-                            countries[i].v_bass[0].setPosition(noise.getPosition());
+                            countries[i].v_bass[0].setPosition(baseMusic.getPosition());
                         }
                         break;
                     case 1:
                         if(!countries[i].v_drum[0].isPlaying()){
                             countries[i].v_drum[0].play();
-                            countries[i].v_drum[0].setPosition(noise.getPosition());
+                            countries[i].v_drum[0].setPosition(baseMusic.getPosition());
                         }		
                         break;
                     case 2:
                         if(!countries[i].v_lead[0].isPlaying()){
                             countries[i].v_lead[0].play();
-                            countries[i].v_lead[0].setPosition(noise.getPosition());
+                            countries[i].v_lead[0].setPosition(baseMusic.getPosition());
                         }
                         break;
                         
@@ -154,6 +129,9 @@ void ofApp::draw(){
         }
     }
     ofPopMatrix();	
+
+	//--------------------------------STOP MATRIX PUSH
+
 
 	camera.end();
 
@@ -191,135 +169,77 @@ void ofApp::keyPressed(int key)
 	}
 }
 
-//--------------------------------------------------------------
-//-------------Class Constructor for the countries--------------
-country::country(string nameOfCountry){
-    //get the country name form the setup when the class is constructed
-    name = nameOfCountry;
-    //set a radius and colour -- not used any more i think
-    radius = 25;
-    r = ofRandom(30,220);
-    g = ofRandom(30,220);
-    b = ofRandom(30,220);
-    //set the spawning of the walkers to false preventing it from creating them straight awaay
-    b_spawn = false;
-    //load the music not image
-    note.load("musicnotes/eighth-note.png");
-    //set the paths for each type of track
-    string path_b = "countries/" + name + "/bass/bass";
-    string path_d = "countries/" + name + "/drums/drums";
-    string path_l = "countries/" + name + "/lead/lead";
-    //assign an image to each class
-    flag.load("countries/"+name+"/flag.png");
-    
-    //assign each of the tracks of each type to a vector
-    for(int i = 0; i < 1; i++){
-        ofSoundPlayer bass,lead,drums;
-		bass.load(path_b + ofToString(i) + ".ogg");
-		if (!bass.isLoaded())
-		{
-			bass.load(path_b + ofToString(i) +".mp3");
-
-		}
-
-        //bass.setLoop(true);
-		lead.load(path_l + ofToString(i) + ".ogg");
-
-		if (!lead.isLoaded())
-		{
-			lead.load(path_l + ofToString(i) +".mp3");
-
-		}
-
-        // lead.setLoop(true);
-
-		drums.load(path_d + ofToString(i) + ".ogg");
-		if (!drums.isLoaded())
-		{
-			drums.load(path_d + ofToString(i) +".mp3");
-
-		}
-
-        // drums.setLoop(true);
-        v_bass.push_back(bass);
-        v_drum.push_back(drums);
-        v_lead.push_back(lead);
-    }
-   //read text files to obtain start points for each country
-    ofFile test;
-    test.open("countries/"+name+"/startpoint.txt");
-    ofBuffer buff(test);
-    string coords = ofToString(buff);
-    
-    string xCoord = coords;
-    xCoord.erase(xCoord.find(":"),xCoord.size());
-    string yCoord = coords;
-    yCoord.erase(0,yCoord.find(":")+1);
-    
-    point.x = ofToFloat(xCoord);
-    point.y = ofToFloat(yCoord);
-}
-
 void ofApp::moveCamera()
 {
 	int timer = ofGetElapsedTimef();
-	
+
 	if (timer % 15 == 0)
 	{
-		if (cuntindex >= countries.size()) {
-			cuntindex = 0;
+		if (countryIndex >= countries.size()) {
+			countryIndex = 0;
 		}
-		camera.setPosition(countries[cuntindex].point);
+		camera.setPosition(countries[countryIndex].point);
 		camera.setDistance(2000);
-		cuntindex++;
-		
+		countryIndex++;
+
 	}
 }
 
-country::~country(){
-    
+void ofApp::loadCountries()
+{
+	// collect country names from directory
+	string path = "countries";
+	ofDirectory dir(path);
+	dir.listDir();
+
+	for (int i = 0; i < dir.size(); i++) {
+		countryName = dir.getPath(i);
+		//countryName.erase(0, countryName.find("/")+1);
+		countryName.erase(0, countryName.find("\\") + 1);
+		countryNames.push_back(countryName);
+	}
+	//create new country for each country name
+	int numCountries = dir.size();
+	for (int i = 0; i < numCountries; i++) {
+		country newCountry(countryNames[i]);
+		countries.push_back(newCountry);
+	}
+	countryIndex = 0;
 }
 
-void country::draw(float index, ofVec3f target)
+void ofApp::loadGraphics()
 {
-    //get the elasped time and set the speed of the walkers
-    time = ofGetElapsedTimef();
-    float speed = 0.01;
+	// set the centre point for the uk and a size for it to be
+	centre.x = 825;
+	centre.y = 1300;
+	countrySize = 20;
 
-    //if spawn is true push the origin of the country to the spawn vector and set it back to false
-    if(b_spawn)
-	{
-        spawn.push_back(point);
-        b_spawn = false;
-    }
-    
-    //draw the flags over the origin points
-    ofSetColor(255);
-    flag.draw(point.x-flag.getWidth()/20,point.y-flag.getHeight()/20,flag.getWidth()/10,flag.getHeight()/10);
-    
-    //if the spawn vector is greater than 0 create a middle point -- this is wrong now, should be target - this will let us use ofLerp to setp towards the target and if the country is within a certain distance it will be removed from the vector preventing too many countries spawning spawns.
-    if(spawn.size() > 0){
-        float spawnDist = ofDist(spawn[0].x, spawn[0].y, target.x, target.y);
-        
-        float xAmt,yAmt;
-		xAmt = 0.005;
-        yAmt = 0.005;
-        
-        spawn[0].x = ofLerp(spawn[0].x, target.x, xAmt);
-        spawn[0].y = ofLerp(spawn[0].y, target.y, yAmt);
+	// load british flag and world map outline
+	britFlag.load("flag.png");
 
-		
+	//mapOutline.load("WorldMapOutline.png");
+	worldMapSVG.load("WorldMapSVG.svg");
+}
 
-		ofSetColor(0, 0, 0);
-		ofSetLineWidth(5);
-		ofDrawLine(point, spawn[0]);
+void ofApp::loadCamera()
+{
+	ofPoint middle;
 
+	camera.setDistance(2000);
+	camera.setDrag(200);
 
-        ofSetColor(100,255,176);
-        note.draw(spawn[0], note.getWidth()/30, note.getHeight()/30);
-        if(spawnDist <= 20)
-		{
-            spawn.pop_back();
-        }
-    }
+	middle.x = worldMapSVG.getWidth() / 2;
+	middle.y = worldMapSVG.getHeight() / 2;
+	middle.z = 1000;
+
+	camera.setPosition(middle);
+}
+
+void ofApp::loadBaseMusic()
+{
+	// assign backing track that will always be playing on loop with a volume of 50%
+	baseMusic.load("p1.mp3");
+	baseMusic.setLoop(true);
+	baseMusic.play();
+	baseMusic.setVolume(0.5f);
 }

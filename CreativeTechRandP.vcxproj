@@ -180,11 +180,13 @@
     <PostBuildEvent />
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\country.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\ofApp.cpp" />
     <ClCompile Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\src\ofxSvg.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\country.h" />
     <ClInclude Include="src\ofApp.h" />
     <ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\src\ofxSvg.h" />
     <ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\c14n.h" />
