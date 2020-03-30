@@ -19,6 +19,9 @@
     <ClCompile Include="src\country.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\musicNote.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -207,6 +210,9 @@
       <Filter>addons\ofxSvg\libs\svgtiny\include</Filter>
     </ClInclude>
     <ClInclude Include="src\country.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\musicNote.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>

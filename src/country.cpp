@@ -4,7 +4,10 @@
 
 //--------------------------------------------------------------
 //-------------Class Constructor for the countries--------------
-country::country(string nameOfCountry) {
+country::country(string nameOfCountry) 
+{
+	note.setImage();
+
 	//get the country name form the setup when the class is constructed
 	countryName = nameOfCountry;
 
@@ -16,7 +19,6 @@ country::country(string nameOfCountry) {
 	//set the spawning of the walkers to false preventing it from creating them straight awaay
 	b_spawn = false;
 	//load the music not image
-	note.load("musicnotes/eighth-note.png");
 	//set the paths for each type of track
 	string path_b = "countries/" + countryName + "/bass/bass";
 	string path_d = "countries/" + countryName + "/drums/drums";
@@ -95,7 +97,10 @@ void country::draw(float index, ofVec3f target)
 	flag.draw(point.x - flag.getWidth() / 20, point.y - flag.getHeight() / 20, flag.getWidth() / 10, flag.getHeight() / 10);
 
 	//if the spawn vector is greater than 0 create a middle point -- this is wrong now, should be target - this will let us use ofLerp to setp towards the target and if the country is within a certain distance it will be removed from the vector preventing too many countries spawning spawns.
-	if (spawn.size() > 0) {
+	if (spawn.size() > 0) 
+	{
+		
+
 		float spawnDist = ofDist(spawn[0].x, spawn[0].y, target.x, target.y);
 
 		float xAmt, yAmt;
@@ -103,17 +108,16 @@ void country::draw(float index, ofVec3f target)
 		yAmt = 0.005;
 
 		spawn[0].x = ofLerp(spawn[0].x, target.x, xAmt);
-		spawn[0].y = ofLerp(spawn[0].y, target.y, yAmt);
+		spawn[0].y = ofLerp(spawn[0].y, target.y, yAmt);	
+		
 
 
 
-		ofSetColor(0, 0, 0);
-		ofSetLineWidth(5);
-		ofDrawLine(point, spawn[0]);
 
 
-		ofSetColor(100, 255, 176);
-		note.draw(spawn[0], note.getWidth() / 30, note.getHeight() / 30);
+		note.leadNoteImage.draw(spawn[0]);
+
+
 		if (spawnDist <= 20)
 		{
 			spawn.pop_back();

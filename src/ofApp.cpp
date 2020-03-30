@@ -70,8 +70,10 @@ void ofApp::draw(){
 
 	//draw the britsh flag over the uk
     britFlag.draw(centre.x-britFlag.getWidth()/20,centre.y-britFlag.getHeight()/20,britFlag.getWidth()/10,britFlag.getHeight()/10);
+
     //for every country trigger the draw function, it takes the i value each time as an index to allow for more variation later - might not be needed, but it does need the ofVec3f centre as a point for the spawners to move too
-    for(int i = 0; i < countries.size(); i++){
+    for(int i = 0; i < countries.size(); i++)
+	{
         countries[i].draw(i,centre);
         //if the country has more than 0 spawns check the distance between it and the centre point
         if(countries[i].spawn.size() > 0){
@@ -87,14 +89,21 @@ void ofApp::draw(){
 				IF NOT CURRENTLY PLAYING: PLAY
 
 			*/
-			if(dist - countrySize < 10){
+			if(dist - countrySize < 10)
+			{
                 
                 int rand;
-                if((!countries[i].v_bass[0].isPlaying())&&(!countries[i].v_drum[0].isPlaying())&&(!countries[i].v_lead[0].isPlaying())){
+
+                if((!countries[i].v_bass[0].isPlaying())&&(!countries[i].v_drum[0].isPlaying())&&(!countries[i].v_lead[0].isPlaying()))
+				{
                     rand = ofRandom(3);
-                }else{
+                }
+				
+				else
+				{
                     rand = 4;
                 }
+
                 //if the sample isnt playing play it and set the position to that of the backing track
                 switch (rand) {
                     case 0:
@@ -198,6 +207,7 @@ void ofApp::loadCountries()
 		countryName.erase(0, countryName.find("\\") + 1);
 		countryNames.push_back(countryName);
 	}
+
 	//create new country for each country name
 	int numCountries = dir.size();
 	for (int i = 0; i < numCountries; i++) {

@@ -1,6 +1,7 @@
 #pragma once
 
 #include "ofMain.h"
+#include "musicNote.h"
 
 
 class country 
@@ -31,7 +32,7 @@ public:
 	int radius, r, g, b;
 	
 	//------note trails
-	ofImage note;
+	musicNote note;
 
 
 
