@@ -25,7 +25,7 @@ void ofApp::update(){
     randspawn = ofGetElapsedTimef();
     for(int i = 0; i < countries.size(); i++)
     {
-        if((randspawn % 500 == 0)&&(countries[i].spawn.size() < 1)&&((!countries[i].v_drum[0].isPlaying())&&(!countries[i].v_bass[0].isPlaying())&&(!countries[i].v_lead[0].isPlaying()))){
+        if((randspawn % 5 == 0)&&(countries[i].spawn.size() < 1)&&((!countries[i].v_drum[0].isPlaying())&&(!countries[i].v_bass[0].isPlaying())&&(!countries[i].v_lead[0].isPlaying()))){
             countries[i].spawn.clear();
             countries[i].b_spawn = true;
             qSize++;
