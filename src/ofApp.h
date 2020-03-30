@@ -3,7 +3,6 @@
 #include "ofMain.h"
 #include "ofxSvg.h"
 #include "country.h"
-#include "dynamicCamera.h"
 
 
 

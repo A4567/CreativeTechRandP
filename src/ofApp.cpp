@@ -194,8 +194,8 @@ void ofApp::loadCountries()
 
 	for (int i = 0; i < dir.size(); i++) {
 		countryName = dir.getPath(i);
-		//countryName.erase(0, countryName.find("/")+1);
-		countryName.erase(0, countryName.find("\\") + 1);
+		countryName.erase(0, countryName.find("/")+1);
+//		countryName.erase(0, countryName.find("\\") + 1);
 		countryNames.push_back(countryName);
 	}
 	//create new country for each country name
