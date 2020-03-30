@@ -21,7 +21,7 @@ public:
 	
 	bool b_spawn;
 	vector<ofVec3f> spawn;
-
+    vector<ofVec2f> track;
 	//--------------------------------------------audio
 	vector<ofSoundPlayer> v_bass, v_drum, v_lead;
 

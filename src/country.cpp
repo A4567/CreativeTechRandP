@@ -87,6 +87,10 @@ void country::draw(float index, ofVec3f target)
 	if (b_spawn)
 	{
 		spawn.push_back(point);
+        int randBLD = ofRandom(3);
+        
+        ofVec2f newTrack(randBLD,0);
+        track.push_back(newTrack);
 		b_spawn = false;
 	}
 
@@ -117,9 +121,11 @@ void country::draw(float index, ofVec3f target)
 		if (spawnDist <= 20)
 		{
 			spawn.pop_back();
+            track.pop_back();
 		}
 	}
 }
+
 
 
 

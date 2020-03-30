@@ -5,7 +5,12 @@
 #include "country.h"
 
 
-
+class nowPlaying {
+public:
+    vector<ofSoundPlayer> bassnow_v;
+    vector<ofSoundPlayer> leadnow_v;
+    vector<ofSoundPlayer> drumnow_v;
+};
 
 class ofApp : public ofBaseApp
 {
@@ -23,7 +28,6 @@ class ofApp : public ofBaseApp
 		void loadCamera();
 		void loadBaseMusic();
 
-		
         
     vector<country> countries;
     ofVec3f centre;
@@ -39,10 +43,10 @@ class ofApp : public ofBaseApp
     ofImage mapOutline;
 	int countryIndex;
 
-
+    int qSize;
 	ofEasyCam camera;
 
-
+    nowPlaying nowPlayer;
 	
 	ofxSVG worldMapSVG;
 
