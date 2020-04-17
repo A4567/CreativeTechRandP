@@ -54,19 +54,19 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="../../Code/C++ Libraries/OpenFrameworks of_v0.11.0_vs2017/of_v0.11.0_vs2017_release/libs\openFrameworksCompiled\project\vs\openFrameworksRelease.props" />
+    <Import Project="../../oF/libs\openFrameworksCompiled\project\vs\openFrameworksRelease.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="../../Code/C++ Libraries/OpenFrameworks of_v0.11.0_vs2017/of_v0.11.0_vs2017_release/libs\openFrameworksCompiled\project\vs\openFrameworksRelease.props" />
+    <Import Project="../../oF/libs\openFrameworksCompiled\project\vs\openFrameworksRelease.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="../../Code/C++ Libraries/OpenFrameworks of_v0.11.0_vs2017/of_v0.11.0_vs2017_release/libs\openFrameworksCompiled\project\vs\openFrameworksDebug.props" />
+    <Import Project="../../oF/libs\openFrameworksCompiled\project\vs\openFrameworksDebug.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="../../Code/C++ Libraries/OpenFrameworks of_v0.11.0_vs2017/of_v0.11.0_vs2017_release/libs\openFrameworksCompiled\project\vs\openFrameworksDebug.props" />
+    <Import Project="../../oF/libs\openFrameworksCompiled\project\vs\openFrameworksDebug.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -100,7 +100,7 @@
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs;..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2;..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include;..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml;..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\lib;..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\lib\vs;..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\lib\vs\Win32;..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\lib\vs\x64;..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\license;..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\svgtiny;..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\svgtiny\include;..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\svgtiny\lib;..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\svgtiny\lib\vs;..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\svgtiny\lib\vs\Win32;..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\svgtiny\lib\vs\x64;..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\svgtiny\license;..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;..\..\oF\addons\ofxSvg\libs;..\..\oF\addons\ofxSvg\libs\libxml2;..\..\oF\addons\ofxSvg\libs\libxml2\include;..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml;..\..\oF\addons\ofxSvg\libs\libxml2\lib;..\..\oF\addons\ofxSvg\libs\libxml2\lib\vs;..\..\oF\addons\ofxSvg\libs\libxml2\lib\vs\Win32;..\..\oF\addons\ofxSvg\libs\libxml2\lib\vs\x64;..\..\oF\addons\ofxSvg\libs\libxml2\license;..\..\oF\addons\ofxSvg\libs\svgtiny;..\..\oF\addons\ofxSvg\libs\svgtiny\include;..\..\oF\addons\ofxSvg\libs\svgtiny\lib;..\..\oF\addons\ofxSvg\libs\svgtiny\lib\vs;..\..\oF\addons\ofxSvg\libs\svgtiny\lib\vs\Win32;..\..\oF\addons\ofxSvg\libs\svgtiny\lib\vs\x64;..\..\oF\addons\ofxSvg\libs\svgtiny\license;..\..\oF\addons\ofxSvg\src</AdditionalIncludeDirectories>
       <CompileAs>CompileAsCpp</CompileAs>
       <ObjectFileName>$(IntDir)</ObjectFileName>
     </ClCompile>
@@ -109,7 +109,7 @@
       <SubSystem>Console</SubSystem>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
       <AdditionalDependencies>%(AdditionalDependencies);libxml2.lib;svgtiny.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories);..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\lib\vs\Win32;..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\svgtiny\lib\vs\Win32</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories);..\..\oF\addons\ofxSvg\libs\libxml2\lib\vs\Win32;..\..\oF\addons\ofxSvg\libs\svgtiny\lib\vs\Win32</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent />
   </ItemDefinitionGroup>
@@ -120,7 +120,7 @@
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs;..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2;..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include;..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml;..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\lib;..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\lib\vs;..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\lib\vs\Win32;..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\lib\vs\x64;..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\license;..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\svgtiny;..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\svgtiny\include;..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\svgtiny\lib;..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\svgtiny\lib\vs;..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\svgtiny\lib\vs\Win32;..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\svgtiny\lib\vs\x64;..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\svgtiny\license;..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;..\..\oF\addons\ofxSvg\libs;..\..\oF\addons\ofxSvg\libs\libxml2;..\..\oF\addons\ofxSvg\libs\libxml2\include;..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml;..\..\oF\addons\ofxSvg\libs\libxml2\lib;..\..\oF\addons\ofxSvg\libs\libxml2\lib\vs;..\..\oF\addons\ofxSvg\libs\libxml2\lib\vs\Win32;..\..\oF\addons\ofxSvg\libs\libxml2\lib\vs\x64;..\..\oF\addons\ofxSvg\libs\libxml2\license;..\..\oF\addons\ofxSvg\libs\svgtiny;..\..\oF\addons\ofxSvg\libs\svgtiny\include;..\..\oF\addons\ofxSvg\libs\svgtiny\lib;..\..\oF\addons\ofxSvg\libs\svgtiny\lib\vs;..\..\oF\addons\ofxSvg\libs\svgtiny\lib\vs\Win32;..\..\oF\addons\ofxSvg\libs\svgtiny\lib\vs\x64;..\..\oF\addons\ofxSvg\libs\svgtiny\license;..\..\oF\addons\ofxSvg\src</AdditionalIncludeDirectories>
       <CompileAs>CompileAsCpp</CompileAs>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <ObjectFileName>$(IntDir)</ObjectFileName>
@@ -130,7 +130,7 @@
       <SubSystem>Console</SubSystem>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
       <AdditionalDependencies>%(AdditionalDependencies);libxml2.lib;svgtiny.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories);..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\lib\vs\x64;..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\svgtiny\lib\vs\x64</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories);..\..\oF\addons\ofxSvg\libs\libxml2\lib\vs\x64;..\..\oF\addons\ofxSvg\libs\svgtiny\lib\vs\x64</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent />
   </ItemDefinitionGroup>
@@ -140,7 +140,7 @@
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs;..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2;..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include;..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml;..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\lib;..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\lib\vs;..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\lib\vs\Win32;..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\lib\vs\x64;..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\license;..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\svgtiny;..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\svgtiny\include;..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\svgtiny\lib;..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\svgtiny\lib\vs;..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\svgtiny\lib\vs\Win32;..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\svgtiny\lib\vs\x64;..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\svgtiny\license;..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;..\..\oF\addons\ofxSvg\libs;..\..\oF\addons\ofxSvg\libs\libxml2;..\..\oF\addons\ofxSvg\libs\libxml2\include;..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml;..\..\oF\addons\ofxSvg\libs\libxml2\lib;..\..\oF\addons\ofxSvg\libs\libxml2\lib\vs;..\..\oF\addons\ofxSvg\libs\libxml2\lib\vs\Win32;..\..\oF\addons\ofxSvg\libs\libxml2\lib\vs\x64;..\..\oF\addons\ofxSvg\libs\libxml2\license;..\..\oF\addons\ofxSvg\libs\svgtiny;..\..\oF\addons\ofxSvg\libs\svgtiny\include;..\..\oF\addons\ofxSvg\libs\svgtiny\lib;..\..\oF\addons\ofxSvg\libs\svgtiny\lib\vs;..\..\oF\addons\ofxSvg\libs\svgtiny\lib\vs\Win32;..\..\oF\addons\ofxSvg\libs\svgtiny\lib\vs\x64;..\..\oF\addons\ofxSvg\libs\svgtiny\license;..\..\oF\addons\ofxSvg\src</AdditionalIncludeDirectories>
       <CompileAs>CompileAsCpp</CompileAs>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <ObjectFileName>$(IntDir)</ObjectFileName>
@@ -153,7 +153,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
       <AdditionalDependencies>%(AdditionalDependencies);libxml2.lib;svgtiny.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories);..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\lib\vs\Win32;..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\svgtiny\lib\vs\Win32</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories);..\..\oF\addons\ofxSvg\libs\libxml2\lib\vs\Win32;..\..\oF\addons\ofxSvg\libs\svgtiny\lib\vs\Win32</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent />
   </ItemDefinitionGroup>
@@ -163,7 +163,7 @@
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs;..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2;..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include;..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml;..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\lib;..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\lib\vs;..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\lib\vs\Win32;..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\lib\vs\x64;..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\license;..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\svgtiny;..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\svgtiny\include;..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\svgtiny\lib;..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\svgtiny\lib\vs;..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\svgtiny\lib\vs\Win32;..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\svgtiny\lib\vs\x64;..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\svgtiny\license;..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;..\..\oF\addons\ofxSvg\libs;..\..\oF\addons\ofxSvg\libs\libxml2;..\..\oF\addons\ofxSvg\libs\libxml2\include;..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml;..\..\oF\addons\ofxSvg\libs\libxml2\lib;..\..\oF\addons\ofxSvg\libs\libxml2\lib\vs;..\..\oF\addons\ofxSvg\libs\libxml2\lib\vs\Win32;..\..\oF\addons\ofxSvg\libs\libxml2\lib\vs\x64;..\..\oF\addons\ofxSvg\libs\libxml2\license;..\..\oF\addons\ofxSvg\libs\svgtiny;..\..\oF\addons\ofxSvg\libs\svgtiny\include;..\..\oF\addons\ofxSvg\libs\svgtiny\lib;..\..\oF\addons\ofxSvg\libs\svgtiny\lib\vs;..\..\oF\addons\ofxSvg\libs\svgtiny\lib\vs\Win32;..\..\oF\addons\ofxSvg\libs\svgtiny\lib\vs\x64;..\..\oF\addons\ofxSvg\libs\svgtiny\license;..\..\oF\addons\ofxSvg\src</AdditionalIncludeDirectories>
       <CompileAs>CompileAsCpp</CompileAs>
       <ObjectFileName>$(IntDir)</ObjectFileName>
     </ClCompile>
@@ -175,68 +175,68 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
       <AdditionalDependencies>%(AdditionalDependencies);libxml2.lib;svgtiny.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories);..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\lib\vs\x64;..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\svgtiny\lib\vs\x64</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories);..\..\oF\addons\ofxSvg\libs\libxml2\lib\vs\x64;..\..\oF\addons\ofxSvg\libs\svgtiny\lib\vs\x64</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent />
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\country.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\ofApp.cpp" />
-    <ClCompile Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\src\ofxSvg.cpp" />
+    <ClCompile Include="src\country.cpp" />
+    <ClCompile Include="..\..\oF\addons\ofxSvg\src\ofxSvg.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\country.h" />
     <ClInclude Include="src\ofApp.h" />
-    <ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\src\ofxSvg.h" />
-    <ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\c14n.h" />
-    <ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\catalog.h" />
-    <ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\chvalid.h" />
-    <ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\debugXML.h" />
-    <ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\dict.h" />
-    <ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\DOCBparser.h" />
-    <ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\encoding.h" />
-    <ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\entities.h" />
-    <ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\globals.h" />
-    <ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\hash.h" />
-    <ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\HTMLparser.h" />
-    <ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\HTMLtree.h" />
-    <ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\list.h" />
-    <ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\nanoftp.h" />
-    <ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\nanohttp.h" />
-    <ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\parser.h" />
-    <ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\parserInternals.h" />
-    <ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\pattern.h" />
-    <ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\relaxng.h" />
-    <ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\SAX.h" />
-    <ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\SAX2.h" />
-    <ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\schemasInternals.h" />
-    <ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\schematron.h" />
-    <ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\threads.h" />
-    <ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\tree.h" />
-    <ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\uri.h" />
-    <ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\valid.h" />
-    <ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\xinclude.h" />
-    <ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\xlink.h" />
-    <ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\xmlautomata.h" />
-    <ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\xmlerror.h" />
-    <ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\xmlexports.h" />
-    <ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\xmlIO.h" />
-    <ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\xmlmemory.h" />
-    <ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\xmlmodule.h" />
-    <ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\xmlreader.h" />
-    <ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\xmlregexp.h" />
-    <ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\xmlsave.h" />
-    <ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\xmlschemas.h" />
-    <ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\xmlschemastypes.h" />
-    <ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\xmlstring.h" />
-    <ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\xmlunicode.h" />
-    <ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\xmlversion.h" />
-    <ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\xmlwriter.h" />
-    <ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\xpath.h" />
-    <ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\xpathInternals.h" />
-    <ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\libxml2\include\libxml\xpointer.h" />
-    <ClInclude Include="..\..\Code\C++ Libraries\OpenFrameworks of_v0.11.0_vs2017\of_v0.11.0_vs2017_release\addons\ofxSvg\libs\svgtiny\include\svgtiny.h" />
+    <ClInclude Include="src\country.h" />
+    <ClInclude Include="..\..\oF\addons\ofxSvg\src\ofxSvg.h" />
+    <ClInclude Include="..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml\c14n.h" />
+    <ClInclude Include="..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml\catalog.h" />
+    <ClInclude Include="..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml\chvalid.h" />
+    <ClInclude Include="..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml\debugXML.h" />
+    <ClInclude Include="..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml\dict.h" />
+    <ClInclude Include="..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml\DOCBparser.h" />
+    <ClInclude Include="..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml\encoding.h" />
+    <ClInclude Include="..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml\entities.h" />
+    <ClInclude Include="..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml\globals.h" />
+    <ClInclude Include="..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml\hash.h" />
+    <ClInclude Include="..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml\HTMLparser.h" />
+    <ClInclude Include="..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml\HTMLtree.h" />
+    <ClInclude Include="..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml\list.h" />
+    <ClInclude Include="..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml\nanoftp.h" />
+    <ClInclude Include="..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml\nanohttp.h" />
+    <ClInclude Include="..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml\parser.h" />
+    <ClInclude Include="..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml\parserInternals.h" />
+    <ClInclude Include="..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml\pattern.h" />
+    <ClInclude Include="..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml\relaxng.h" />
+    <ClInclude Include="..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml\SAX.h" />
+    <ClInclude Include="..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml\SAX2.h" />
+    <ClInclude Include="..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml\schemasInternals.h" />
+    <ClInclude Include="..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml\schematron.h" />
+    <ClInclude Include="..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml\threads.h" />
+    <ClInclude Include="..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml\tree.h" />
+    <ClInclude Include="..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml\uri.h" />
+    <ClInclude Include="..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml\valid.h" />
+    <ClInclude Include="..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml\xinclude.h" />
+    <ClInclude Include="..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml\xlink.h" />
+    <ClInclude Include="..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml\xmlautomata.h" />
+    <ClInclude Include="..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml\xmlerror.h" />
+    <ClInclude Include="..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml\xmlexports.h" />
+    <ClInclude Include="..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml\xmlIO.h" />
+    <ClInclude Include="..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml\xmlmemory.h" />
+    <ClInclude Include="..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml\xmlmodule.h" />
+    <ClInclude Include="..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml\xmlreader.h" />
+    <ClInclude Include="..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml\xmlregexp.h" />
+    <ClInclude Include="..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml\xmlsave.h" />
+    <ClInclude Include="..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml\xmlschemas.h" />
+    <ClInclude Include="..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml\xmlschemastypes.h" />
+    <ClInclude Include="..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml\xmlstring.h" />
+    <ClInclude Include="..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml\xmlunicode.h" />
+    <ClInclude Include="..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml\xmlversion.h" />
+    <ClInclude Include="..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml\xmlwriter.h" />
+    <ClInclude Include="..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml\xpath.h" />
+    <ClInclude Include="..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml\xpathInternals.h" />
+    <ClInclude Include="..\..\oF\addons\ofxSvg\libs\libxml2\include\libxml\xpointer.h" />
+    <ClInclude Include="..\..\oF\addons\ofxSvg\libs\svgtiny\include\svgtiny.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="$(OF_ROOT)\libs\openFrameworksCompiled\project\vs\openframeworksLib.vcxproj">

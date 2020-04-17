@@ -28,10 +28,16 @@ public:
 	//--------------------------------------------visuals
 	//------flag
 	ofImage flag;
+
+
 	int radius, r, g, b;
 	
 	//------note trails
 	ofImage note;
+
+	//Info Card
+	ofImage infoCard;
+	bool isHovering;
 
 
 

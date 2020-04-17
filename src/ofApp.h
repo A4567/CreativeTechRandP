@@ -28,6 +28,9 @@ class ofApp : public ofBaseApp
 		void loadCamera();
 		void loadBaseMusic();
 
+		void mouseReleased(int x, int y, int button);
+
+
         
     vector<country> countries;
     ofVec3f centre;
@@ -49,6 +52,9 @@ class ofApp : public ofBaseApp
     nowPlaying nowPlayer;
 	
 	ofxSVG worldMapSVG;
+
+	float mouseX;
+	float mouseY;
 
 
 };

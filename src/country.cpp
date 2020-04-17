@@ -13,14 +13,22 @@ country::country(string nameOfCountry) {
 	r = ofRandom(30, 220);
 	g = ofRandom(30, 220);
 	b = ofRandom(30, 220);
+
 	//set the spawning of the walkers to false preventing it from creating them straight awaay
 	b_spawn = false;
+
 	//load the music not image
 	note.load("musicnotes/eighth-note.png");
+
+	//load the infoCard
+	infoCard.load("infocards/" + countryName + ".jpg");
+	isHovering = false;
+
 	//set the paths for each type of track
 	string path_b = "countries/" + countryName + "/bass/bass";
 	string path_d = "countries/" + countryName + "/drums/drums";
 	string path_l = "countries/" + countryName + "/lead/lead";
+
 	//assign an image to each class
 	flag.load("countries/" + countryName + "/flag.png");
 

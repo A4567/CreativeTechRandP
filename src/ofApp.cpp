@@ -122,7 +122,25 @@ void ofApp::draw(){
     
     //--------------------------------STOP MATRIX PUSH
     
-    
+    //infoCard
+	for (int i = 0; i < countries.size(); i++)
+	{
+		if (countries[i].isHovering)
+		{
+			countries[i].infoCard.load("infocards/" + countries[i].countryName + ".jpg");
+			if (countries[i].infoCard.isAllocated() == false)
+			{
+				cout << "ERROR: No info card found for " + countries[i].countryName + "!" << endl;
+			}
+		
+			countries[i].infoCard.draw(countries[i].point.x,countries[i].point.y, ofGetWidth() * 0.5, ofGetHeight() * 0.3);
+		}
+		else
+		{
+			countries[i].infoCard.clear();
+		}
+	}
+
     camera.end();
     ofSetColor(0, 0, 0, 120);
     ofDrawRectangle(ofGetWidth()-200, 0, 200, 200);
@@ -236,8 +254,8 @@ void ofApp::loadCountries()
     
     for (int i = 0; i < dir.size(); i++) {
         countryName = dir.getPath(i);
-        countryName.erase(0, countryName.find("/")+1);
-        //		countryName.erase(0, countryName.find("\\") + 1);
+        //countryName.erase(0, countryName.find("/")+1);
+        countryName.erase(0, countryName.find("\\") + 1);
         countryNames.push_back(countryName);
     }
     //create new country for each country name - temp changed to 1 for experiments
@@ -284,4 +302,19 @@ void ofApp::loadBaseMusic()
     baseMusic.setLoop(true);
     baseMusic.play();
     baseMusic.setVolume(0.5f);
+}
+
+void ofApp::mouseReleased(int x, int y, int button) 
+{
+	mouseX = x;
+	mouseY = y;
+
+	for (int i = 0; i < countries.size(); i++)
+	{
+		if (ofDist(x, y, countries[i].point.x, countries[i].point.y) <= 10)
+		{
+			countries[i].isHovering == true;
+		}
+		else { countries[i].isHovering == false; }
+	}
 }
