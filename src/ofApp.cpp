@@ -136,22 +136,23 @@ void ofApp::draw(){
     
     //queue
     if(nowPlayer.bassnow_v.size() > 0){
+        nowPlayer.bassnow_v[0].setPan(-0.5f);
         if(!nowPlayer.bassnow_v[0].isPlaying()){
             nowPlayer.bassnow_v[0].play();
         }
-        if((nowPlayer.bassnow_v[0].getPosition() > 0.9)&&(nowPlayer.bassnow_v[0].isPlaying())){
+        if(nowPlayer.bassnow_v[0].getPosition() > 0.99){
             nowPlayer.bassnow_v[0].stop();
-            cout << "change" << endl;
             nowPlayer.bassnow_v.erase(nowPlayer.bassnow_v.begin());
             qSize--;
         }
     }
     if(nowPlayer.leadnow_v.size() > 0){
-        
+        nowPlayer.leadnow_v[0].setPan(0.5f);
         if(!nowPlayer.leadnow_v[0].isPlaying()){
+            
             nowPlayer.leadnow_v[0].play();
         }
-        if(nowPlayer.leadnow_v[0].getPosition() > 0.9){
+        if(nowPlayer.leadnow_v[0].getPosition() > 0.99){
             nowPlayer.leadnow_v[0].stop();
             nowPlayer.leadnow_v.erase(nowPlayer.leadnow_v.begin());
             qSize--;
@@ -161,7 +162,7 @@ void ofApp::draw(){
         if(!nowPlayer.drumnow_v[0].isPlaying()){
             nowPlayer.drumnow_v[0].play();
         }
-        if(nowPlayer.drumnow_v[0].getPosition() > 0.9){
+        if(nowPlayer.drumnow_v[0].getPosition() > 0.99){
             nowPlayer.drumnow_v[0].stop();
             nowPlayer.drumnow_v.erase(nowPlayer.drumnow_v.begin());
             qSize--;
