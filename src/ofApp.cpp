@@ -149,42 +149,76 @@ void ofApp::draw(){
     ofDrawBitmapString(ofToString(nowPlayer.bassnow_v.size()) + " in bass queue", ofGetWidth()-190, 10);
     ofDrawBitmapString(ofToString(nowPlayer.leadnow_v.size()) + " in lead queue", ofGetWidth()-190, 30);
     ofDrawBitmapString(ofToString(nowPlayer.drumnow_v.size()) + " in drum queue", ofGetWidth()-190, 50);
+	ofDrawBitmapString(playing, ofGetWidth() - 190, 70);
+
+
     
     ofDrawBitmapString(ofToString(qSize) + " queue", ofGetWidth()-190, 90);
     
-    //queue
-    if(nowPlayer.bassnow_v.size() > 0){
-        if(!nowPlayer.bassnow_v[0].isPlaying()){
+    //-------------------------------------------------------QUEUE SYSTEM
+	//-------------------------------------------------------Bass
+    if(nowPlayer.bassnow_v.size() > 0)
+	{
+
+        if(!nowPlayer.bassnow_v[0].isPlaying())
+		{
             nowPlayer.bassnow_v[0].play();
         }
-        if((nowPlayer.bassnow_v[0].getPosition() > 0.9)&&(nowPlayer.bassnow_v[0].isPlaying())){
+
+        if((nowPlayer.bassnow_v[0].getPosition() > 0.99)&&(nowPlayer.bassnow_v[0].isPlaying()))
+		{
             nowPlayer.bassnow_v[0].stop();
             cout << "change" << endl;
             nowPlayer.bassnow_v.erase(nowPlayer.bassnow_v.begin());
             qSize--;
         }
     }
-    if(nowPlayer.leadnow_v.size() > 0){
-        
-        if(!nowPlayer.leadnow_v[0].isPlaying()){
+
+
+	//-------------------------------------------------------LEAD
+    if(nowPlayer.leadnow_v.size() > 0)
+	{
+		playing = "base lead not playing";
+		c_lead.stop();
+        if(!nowPlayer.leadnow_v[0].isPlaying())
+		{
             nowPlayer.leadnow_v[0].play();
         }
-        if(nowPlayer.leadnow_v[0].getPosition() > 0.9){
+		
+
+        if(nowPlayer.leadnow_v[0].getPosition() > 0.99){
             nowPlayer.leadnow_v[0].stop();
             nowPlayer.leadnow_v.erase(nowPlayer.leadnow_v.begin());
             qSize--;
         }
     }
-    if(nowPlayer.drumnow_v.size() > 0){
-        if(!nowPlayer.drumnow_v[0].isPlaying()){
+
+	if (nowPlayer.leadnow_v.size() == 0)
+	{
+		playing = "base lead playing";
+		c_lead.play();
+	}
+
+
+	
+	//-------------------------------------------------------DRUM
+    if(nowPlayer.drumnow_v.size() > 0)
+	{
+
+        if(!nowPlayer.drumnow_v[0].isPlaying())
+		{
             nowPlayer.drumnow_v[0].play();
         }
-        if(nowPlayer.drumnow_v[0].getPosition() > 0.9){
+
+        if(nowPlayer.drumnow_v[0].getPosition() >0.99)
+		{
             nowPlayer.drumnow_v[0].stop();
             nowPlayer.drumnow_v.erase(nowPlayer.drumnow_v.begin());
             qSize--;
         }
     }
+
+
     
 }
 
@@ -298,23 +332,11 @@ void ofApp::loadCamera()
 void ofApp::loadBaseMusic()
 {
     // assign backing track that will always be playing on loop with a volume of 50%
-    baseMusic.load("p1.mp3");
-    baseMusic.setLoop(true);
-    baseMusic.play();
-    baseMusic.setVolume(0.5f);
+    baseMusic.load("p1-drums.mp3");
+
+	c_bass.load("p1-rhythm.mp3");
+	c_lead.load("p1-lead.mp3");
+	c_drum.load("p1-drums.mp3");
+    
 }
 
-void ofApp::mouseReleased(int x, int y, int button) 
-{
-	mouseX = x;
-	mouseY = y;
-
-	for (int i = 0; i < countries.size(); i++)
-	{
-		if (ofDist(x, y, countries[i].point.x, countries[i].point.y) <= 10)
-		{
-			countries[i].isHovering == true;
-		}
-		else { countries[i].isHovering == false; }
-	}
-}

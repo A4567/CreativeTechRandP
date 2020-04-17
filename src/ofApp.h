@@ -5,11 +5,13 @@
 #include "country.h"
 
 
-class nowPlaying {
+class nowPlaying 
+{
 public:
     vector<ofSoundPlayer> bassnow_v;
     vector<ofSoundPlayer> leadnow_v;
     vector<ofSoundPlayer> drumnow_v;
+
 };
 
 class ofApp : public ofBaseApp
@@ -28,31 +30,39 @@ class ofApp : public ofBaseApp
 		void loadCamera();
 		void loadBaseMusic();
 
-		void mouseReleased(int x, int y, int button);
 
 
         
-    vector<country> countries;
-    ofVec3f centre;
-    float dist;
-    int countrySize;
-    vector<string> countryNames;
     string countryName;
+
     ofSoundPlayer baseMusic;
+
     vector<ofSoundPlayer> soundVectorBass,soundVectorDrum,SoundVectorLead;
     vector<bool> play;
+	vector<string> countryNames;
+	vector<country> countries;
+	ofSoundPlayer c_bass, c_drum, c_lead;
+
+	string playing;
+
+	ofVec3f centre;
+
     ofImage britFlag;
-    int randspawn;
-    ofImage mapOutline;
-	int countryIndex;
+	ofImage mapOutline;
 
-    int qSize;
-	ofEasyCam camera;
-
-    nowPlaying nowPlayer;
-	
 	ofxSVG worldMapSVG;
 
+
+    int randspawn;
+	int countryIndex;
+	int countrySize;
+    int qSize;
+
+	ofEasyCam camera;
+    nowPlaying nowPlayer;
+
+	
+	float dist;
 	float mouseX;
 	float mouseY;
 

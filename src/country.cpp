@@ -35,6 +35,7 @@ country::country(string nameOfCountry) {
 	//assign each of the tracks of each type to a vector
 	for (int i = 0; i < 1; i++) {
 		ofSoundPlayer bass, lead, drums;
+
 		bass.load(path_b + ofToString(i) + ".ogg");
 		if (!bass.isLoaded())
 		{
@@ -61,6 +62,7 @@ country::country(string nameOfCountry) {
 		}
 
 		// drums.setLoop(true);
+
 		v_bass.push_back(bass);
 		v_drum.push_back(drums);
 		v_lead.push_back(lead);
