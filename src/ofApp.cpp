@@ -284,8 +284,8 @@ void ofApp::loadCountries()
     
     for (int i = 0; i < dir.size(); i++) {
         countryName = dir.getPath(i);
-        countryName.erase(0, countryName.find("/")+1);
-        //		countryName.erase(0, countryName.find("\\") + 1);
+        //countryName.erase(0, countryName.find("/")+1);
+        		countryName.erase(0, countryName.find("\\") + 1);
         countryNames.push_back(countryName);
     }
     //create new country for each country name - temp changed to 1 for experiments
@@ -331,18 +331,22 @@ void ofApp::loadBaseMusic()
     //bass
     baseMusicB.load("p1-rhythm.mp3");
     baseMusicB.setLoop(true);
-    baseMusicB.play();
     baseMusicB.setVolume(0.5f);
     baseMusicB.setPan(-0.5f);
     //lead
     baseMusicL.load("p1-lead.mp3");
     baseMusicL.setLoop(true);
-    baseMusicL.play();
     baseMusicL.setVolume(0.5f);
     baseMusicL.setPan(0.5f);
     //drums
     baseMusicD.load("p1-drums.mp3");
     baseMusicD.setLoop(true);
-    baseMusicD.play();
     baseMusicD.setVolume(0.5f);
+
+	    baseMusicL.play();
+		baseMusicD.play();
+		baseMusicB.play();
+
+
+
 }
