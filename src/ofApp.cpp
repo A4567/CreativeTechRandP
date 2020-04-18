@@ -8,6 +8,7 @@ void ofApp::setup()
     loadBaseMusic();
     loadCamera();
     
+    b_toggleQ = false;
     
     qSize = 0;
     cardIndex = 0;
@@ -125,6 +126,7 @@ void ofApp::draw(){
     
     
     camera.end();
+    if(b_toggleQ){
     ofSetColor(0, 0, 0, 120);
     ofDrawRectangle(ofGetWidth()-200, 0, 200, 200);
     
@@ -134,40 +136,51 @@ void ofApp::draw(){
     ofDrawBitmapString(ofToString(nowPlayer.drumnow_v.size()) + " in drum queue", ofGetWidth()-190, 50);
     
     ofDrawBitmapString(ofToString(qSize) + " queue", ofGetWidth()-190, 90);
-    
+    }
     //queue
     if(nowPlayer.bassnow_v.size() > 0){
+        baseMusicB.setVolume(0.0f);
         nowPlayer.bassnow_v[0].setPan(-0.5f);
         if(!nowPlayer.bassnow_v[0].isPlaying()){
             nowPlayer.bassnow_v[0].play();
+            nowPlayer.bassnow_v[0].setPosition(baseMusicB.getPosition());
         }
-        if(nowPlayer.bassnow_v[0].getPosition() > 0.99){
+        if(nowPlayer.bassnow_v[0].getPosition() > 0.9){
             nowPlayer.bassnow_v[0].stop();
             nowPlayer.bassnow_v.erase(nowPlayer.bassnow_v.begin());
             qSize--;
         }
+    }else if (nowPlayer.bassnow_v.size() == 0){
+        baseMusicB.setVolume(0.5f);
     }
     if(nowPlayer.leadnow_v.size() > 0){
+        baseMusicL.setVolume(0.0f);
         nowPlayer.leadnow_v[0].setPan(0.5f);
         if(!nowPlayer.leadnow_v[0].isPlaying()){
-            
             nowPlayer.leadnow_v[0].play();
+            nowPlayer.leadnow_v[0].setPosition(baseMusicL.getPosition());
         }
-        if(nowPlayer.leadnow_v[0].getPosition() > 0.99){
+        if(nowPlayer.leadnow_v[0].getPosition() > 0.9){
             nowPlayer.leadnow_v[0].stop();
             nowPlayer.leadnow_v.erase(nowPlayer.leadnow_v.begin());
             qSize--;
         }
+    }else if (nowPlayer.leadnow_v.size() == 0){
+        baseMusicL.setVolume(0.5f);
     }
     if(nowPlayer.drumnow_v.size() > 0){
+        baseMusicD.setVolume(0.0f);
         if(!nowPlayer.drumnow_v[0].isPlaying()){
             nowPlayer.drumnow_v[0].play();
+            nowPlayer.drumnow_v[0].setPosition(baseMusicD.getPosition());
         }
-        if(nowPlayer.drumnow_v[0].getPosition() > 0.99){
+        if(nowPlayer.drumnow_v[0].getPosition() > 0.9){
             nowPlayer.drumnow_v[0].stop();
             nowPlayer.drumnow_v.erase(nowPlayer.drumnow_v.begin());
             qSize--;
         }
+    }else if (nowPlayer.drumnow_v.size() == 0){
+        baseMusicD.setVolume(0.5f);
     }
     ofSetColor(0, 0, 0, 170);
     int boxStartY = ofGetHeight()-350;
@@ -210,15 +223,7 @@ void ofApp::keyPressed(int key)
         currentPos.x += 30;
         camera.setPosition(currentPos);
     }
-    //testing queues thngs
-    if (key == 'l') {
-        for(int i = 0; i < countries.size(); i++)
-        {
-            countries[i].spawn.clear();
-            countries[i].b_spawn = true;
-            qSize++;
-        }
-    }
+
     if(key == OF_KEY_LEFT){
         if (cardIndex > 0) {
             cardIndex--;
@@ -226,12 +231,16 @@ void ofApp::keyPressed(int key)
             cardIndex = cardSize;
         }
     }
+    
     if(key == OF_KEY_RIGHT){
         if(cardIndex < cardSize){
             cardIndex++;
         }else{
             cardIndex = 0;
         }
+    }
+    if(key == 'l'){
+        b_toggleQ = !b_toggleQ;
     }
 }
 
@@ -319,8 +328,21 @@ void ofApp::loadCamera()
 void ofApp::loadBaseMusic()
 {
     // assign backing track that will always be playing on loop with a volume of 50%
-    baseMusic.load("p1.mp3");
-    baseMusic.setLoop(true);
-    baseMusic.play();
-    baseMusic.setVolume(0.5f);
+    //bass
+    baseMusicB.load("p1-rhythm.mp3");
+    baseMusicB.setLoop(true);
+    baseMusicB.play();
+    baseMusicB.setVolume(0.5f);
+    baseMusicB.setPan(-0.5f);
+    //lead
+    baseMusicL.load("p1-lead.mp3");
+    baseMusicL.setLoop(true);
+    baseMusicL.play();
+    baseMusicL.setVolume(0.5f);
+    baseMusicL.setPan(0.5f);
+    //drums
+    baseMusicD.load("p1-drums.mp3");
+    baseMusicD.setLoop(true);
+    baseMusicD.play();
+    baseMusicD.setVolume(0.5f);
 }

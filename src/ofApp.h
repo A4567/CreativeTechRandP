@@ -36,7 +36,7 @@ class ofApp : public ofBaseApp
     int countrySize;
     vector<string> countryNames;
     string countryName;
-    ofSoundPlayer baseMusic;
+    ofSoundPlayer baseMusicB,baseMusicL,baseMusicD;
     vector<ofSoundPlayer> soundVectorBass,soundVectorDrum,SoundVectorLead;
     vector<bool> play;
     ofImage britFlag;
@@ -52,4 +52,5 @@ class ofApp : public ofBaseApp
 	ofxSVG worldMapSVG;
 
     int cardIndex, cardSize;
+    bool b_toggleQ;
 };
