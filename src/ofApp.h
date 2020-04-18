@@ -27,6 +27,7 @@ class ofApp : public ofBaseApp
 		void loadGraphics();
 		void loadCamera();
 		void loadBaseMusic();
+    void loadInfo(int startX, int startY);
 
         
     vector<country> countries;
@@ -50,5 +51,5 @@ class ofApp : public ofBaseApp
 	
 	ofxSVG worldMapSVG;
 
-
+    int cardIndex, cardSize;
 };

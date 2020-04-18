@@ -10,7 +10,8 @@ void ofApp::setup()
     
     
     qSize = 0;
-    
+    cardIndex = 0;
+    cardSize = 0;
 }
 
 //--------------------------------------------------------------
@@ -168,6 +169,14 @@ void ofApp::draw(){
             qSize--;
         }
     }
+    ofSetColor(0, 0, 0, 170);
+    int boxStartY = ofGetHeight()-350;
+    int boxStartX = ofGetWidth()-620;
+    ofDrawRectangle(boxStartX, boxStartY, 595, 345);
+    string instructions = "Use the keys: W,A,S,D to navigate around the map \nUse the left and right arrow keys to go through the information cards";
+    ofSetColor(255, 255, 255);
+    ofDrawBitmapString(instructions, boxStartX+10, boxStartY+15);
+    loadInfo(boxStartX+20,boxStartY+45);
     
 }
 
@@ -210,6 +219,20 @@ void ofApp::keyPressed(int key)
             qSize++;
         }
     }
+    if(key == OF_KEY_LEFT){
+        if (cardIndex > 0) {
+            cardIndex--;
+        }else{
+            cardIndex = cardSize;
+        }
+    }
+    if(key == OF_KEY_RIGHT){
+        if(cardIndex < cardSize){
+            cardIndex++;
+        }else{
+            cardIndex = 0;
+        }
+    }
 }
 
 void ofApp::moveCamera()
@@ -226,6 +249,21 @@ void ofApp::moveCamera()
         countryIndex++;
         
     }
+}
+
+void ofApp::loadInfo(int startX, int startY){
+    string path = "infocards";
+    ofDirectory dir(path);
+    dir.listDir();
+    vector<ofImage> infoCards;
+    for (int i = 0; i < dir.size(); i++) {
+        ofImage card;
+        card.load(dir.getPath(i));
+        infoCards.push_back(card);
+    }
+    cardSize = infoCards.size() - 1;
+    infoCards[cardIndex].draw(startX, startY, infoCards[cardIndex].getWidth()/2.5,infoCards[cardIndex].getHeight()/2.5);
+    
 }
 
 void ofApp::loadCountries()
