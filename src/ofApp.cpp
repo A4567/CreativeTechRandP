@@ -13,6 +13,11 @@ void ofApp::setup()
     qSize = 0;
     cardIndex = 0;
     cardSize = 0;
+
+	boxStartX = ofGetWidth() * 0.695;
+	boxStartY = ofGetHeight() * 0.75;
+	loadInfo(boxStartX, boxStartY);
+
 }
 
 //--------------------------------------------------------------
@@ -24,6 +29,10 @@ void ofApp::update(){
      ADD TIMER SYSTEM HERE
      */
     
+	boxStartX = ofGetWidth() * 0.695;
+	boxStartY = ofGetHeight() * 0.75;
+
+
     randspawn = ofGetElapsedTimef();
     for(int i = 0; i < countries.size(); i++)
     {
@@ -50,6 +59,7 @@ void ofApp::update(){
 void ofApp::draw(){
     
     camera.begin();
+
     
     
     //sets the colour of the countries on the map to white
@@ -72,7 +82,7 @@ void ofApp::draw(){
     //push the matrix to set the 0,0 point to the centre
     ofPushMatrix();
     
-    ofTranslate(1920 / 2, 1080 / 2);
+    ofTranslate(ofGetWidth() / 2, ofGetHeight() / 2);
     
     
     //draw the britsh flag over the uk
@@ -183,13 +193,15 @@ void ofApp::draw(){
         baseMusicD.setVolume(0.5f);
     }
     ofSetColor(0, 0, 0, 170);
-    int boxStartY = ofGetHeight()-350;
-    int boxStartX = ofGetWidth()-620;
+
+   
+	
     ofDrawRectangle(boxStartX, boxStartY, 595, 345);
     string instructions = "Use the keys: W,A,S,D to navigate around the map \nUse the left and right arrow keys to go through the information cards";
     ofSetColor(255, 255, 255);
+	infoCards[cardIndex].draw(boxStartX+5, boxStartY+35, 473, 241.88);
     ofDrawBitmapString(instructions, boxStartX+10, boxStartY+15);
-    loadInfo(boxStartX+20,boxStartY+45);
+
     
 }
 
@@ -225,22 +237,31 @@ void ofApp::keyPressed(int key)
     }
 
     if(key == OF_KEY_LEFT){
-        if (cardIndex > 0) {
+        if (cardIndex > 0) 
+		{
             cardIndex--;
-        }else{
+
+        }else
+		{
             cardIndex = cardSize;
         }
     }
     
     if(key == OF_KEY_RIGHT){
-        if(cardIndex < cardSize){
+        if(cardIndex < cardSize)
+		{
             cardIndex++;
-        }else{
+        }
+		else
+		{
             cardIndex = 0;
         }
     }
-    if(key == 'l'){
+    if(key == 'l')
+	{
         b_toggleQ = !b_toggleQ;
+		boxStartX += 10;
+		cout << boxStartX;
     }
 }
 
@@ -260,18 +281,22 @@ void ofApp::moveCamera()
     }
 }
 
-void ofApp::loadInfo(int startX, int startY){
+void ofApp::loadInfo(int startX, int startY)
+{
     string path = "infocards";
     ofDirectory dir(path);
     dir.listDir();
-    vector<ofImage> infoCards;
-    for (int i = 0; i < dir.size(); i++) {
+	
+    for (int i = 0; i < dir.size(); i++) 
+	{
         ofImage card;
         card.load(dir.getPath(i));
         infoCards.push_back(card);
+		cout << "Card " << i << " loaded" << endl;
     }
+
     cardSize = infoCards.size() - 1;
-    infoCards[cardIndex].draw(startX, startY, infoCards[cardIndex].getWidth()/2.5,infoCards[cardIndex].getHeight()/2.5);
+	
     
 }
 
@@ -285,7 +310,7 @@ void ofApp::loadCountries()
     for (int i = 0; i < dir.size(); i++) {
         countryName = dir.getPath(i);
         //countryName.erase(0, countryName.find("/")+1);
-        		countryName.erase(0, countryName.find("\\") + 1);
+        countryName.erase(0, countryName.find("\\") + 1);
         countryNames.push_back(countryName);
     }
     //create new country for each country name - temp changed to 1 for experiments
@@ -347,6 +372,6 @@ void ofApp::loadBaseMusic()
 		baseMusicD.play();
 		baseMusicB.play();
 
-
+				
 
 }

@@ -53,4 +53,11 @@ class ofApp : public ofBaseApp
 
     int cardIndex, cardSize;
     bool b_toggleQ;
+
+	int boxStartY;
+	int boxStartX;
+
+	vector<ofImage> infoCards;
+	
+
 };
