@@ -71,7 +71,7 @@ void ofApp::draw(){
     //push the matrix to set the 0,0 point to the centre
     ofPushMatrix();
     
-    ofTranslate(ofGetWidth() / 2, ofGetHeight() / 2);
+    ofTranslate(1920 / 2, 1080 / 2);
     
     
     //draw the britsh flag over the uk
