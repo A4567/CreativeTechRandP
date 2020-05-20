@@ -206,12 +206,12 @@ country::country(string nameOfCountry){
     //load the music not image
     note.load("musicnotes/eighth-note.png");
     //set the paths for each type of track
-    string path_b = "countries/" + name + "/bass/bass";
-    string path_d = "countries/" + name + "/drums/drums";
-    string path_l = "countries/" + name + "/lead/lead";
+    string path_b =  name + "/bass/bass";
+    string path_d =  name + "/drums/drums";
+    string path_l =  name + "/lead/lead";
     //assign an image to each class
-    flag.load("countries/"+name+"/flag.png");
-    
+    flag.load( name+"/flag.png");
+
     //assign each of the tracks of each type to a vector
     for(int i = 0; i < 1; i++){
         ofSoundPlayer bass,lead,drums;
@@ -247,7 +247,9 @@ country::country(string nameOfCountry){
     }
    //read text files to obtain start points for each country
     ofFile test;
-    test.open("countries/"+name+"/startpoint.txt");
+   // test.open("countries/"+name+"/startpoint.txt");
+    test.open( name+"/startpoint.txt");
+
     ofBuffer buff(test);
     string coords = ofToString(buff);
     
